@@ -8,6 +8,6 @@
 .footer p {
   font-family: var(--font-body);
   font-size: 0.8125rem;
-  color: var(--steel);
+  color: #94A3B8;
   letter-spacing: 0.01em;
 }

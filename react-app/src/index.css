@@ -10,12 +10,12 @@
 
 :root {
   /* Palette */
-  --ink: #0B0D0F;
-  --navy: #0A1F44;
-  --slate: #5B6470;
-  --steel: #8A94A6;
-  --off-white: #F7F8FA;
-  --accent: #4A90D9;
+  --ink: #0F172A;
+  --navy: #0F172A;
+  --slate: #475569;
+  --steel: #64748B;
+  --off-white: #F8FAFC;
+  --accent: #2563EB;
   --white: #FFFFFF;
 
   /* Semantic tokens — light mode */
@@ -26,13 +26,13 @@
   --bg-base: var(--white);
   --bg-secondary: var(--off-white);
   --bg-elevated: var(--white);
-  --border: #D8DCE3;
-  --border-subtle: #E2E6EB;
+  --border: #E2E8F0;
+  --border-subtle: #E2E8F0;
   --cta-bg: var(--navy);
   --cta-text: var(--white);
 
   /* Layout */
-  --max-width: 760px;
+  --max-width: 840px;
   --gutter: 1.5rem;
 
   /* Type */

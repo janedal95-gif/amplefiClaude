@@ -3,13 +3,7 @@
   margin: 0;
   padding: 5.5rem var(--gutter) 6rem;
   text-align: center;
-  background:
-    linear-gradient(
-      175deg,
-      var(--navy) 0%,
-      #0D2A56 50%,
-      var(--ink) 100%
-    );
+  background: var(--navy);
 
   /* Invert button for dark context */
   --cta-bg: var(--white);
@@ -18,7 +12,7 @@
 
 .text {
   font-size: 1.125rem;
-  color: var(--steel);
+  color: #94A3B8;
   margin-bottom: 2.25rem;
   max-width: 440px;
   margin-left: auto;
