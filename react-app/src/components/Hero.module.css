@@ -1,0 +1,28 @@
+.hero {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 7rem var(--gutter) 5.5rem;
+}
+
+.headline {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5.5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--navy);
+  max-width: 620px;
+}
+
+.subline {
+  margin-top: 1.5rem;
+  font-size: 1.0625rem;
+  font-weight: 400;
+  color: var(--text-muted);
+  max-width: 500px;
+  line-height: 1.7;
+}
+
+.cta {
+  margin-top: 2.5rem;
+}

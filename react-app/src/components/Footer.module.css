@@ -1,0 +1,13 @@
+.footer {
+  background: var(--ink);
+  border-top: none;
+  padding: 2.5rem var(--gutter);
+  text-align: center;
+}
+
+.footer p {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  color: var(--steel);
+  letter-spacing: 0.01em;
+}

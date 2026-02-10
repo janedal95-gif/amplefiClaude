@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amplefi — Hospital Operations Management</title>
+  <meta name="description" content="Amplefi helps hospitals operate ahead of demand instead of behind it. Real-time coordination for patient flow, discharge timing, and clinical escalation.">
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --text-primary: #0F172A;
+      --text-muted: #475569;
+      --bg-white: #FFFFFF;
+      --bg-secondary: #F8FAFC;
+      --border: #E2E8F0;
+      --accent: #2563EB;
+      --cta-bg: #0F172A;
+      --cta-text: #FFFFFF;
+    }
+
+    html {
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: var(--text-primary);
+      background: var(--bg-white);
+      line-height: 1.6;
+    }
+
+    /* ---- NAV ---- */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 0;
+    }
+
+    .wordmark {
+      font-size: 1.125rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      text-decoration: none;
+    }
+
+    nav a.nav-cta {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1px;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    nav a.nav-cta:hover {
+      color: var(--text-primary);
+      border-color: var(--text-primary);
+    }
+
+    /* ---- SECTIONS ---- */
+    section {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ---- HERO ---- */
+    .hero {
+      padding-top: 6rem;
+      padding-bottom: 5rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.75rem, 4.5vw, 2.5rem);
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.025em;
+      max-width: 580px;
+    }
+
+    .hero p {
+      margin-top: 1.25rem;
+      font-size: 1.0625rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      line-height: 1.65;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      margin-top: 2.25rem;
+      padding: 0.8rem 2rem;
+      font-size: 0.9375rem;
+      font-weight: 600;
+      color: var(--cta-text);
+      background: var(--cta-bg);
+      border: none;
+      border-radius: 6px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.88;
+    }
+
+    .btn-primary:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    /* ---- DIVIDER ---- */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    /* ---- WHAT ---- */
+    .what {
+      padding-top: 4.5rem;
+      padding-bottom: 4.5rem;
+    }
+
+    .section-label {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-bottom: 1.25rem;
+    }
+
+    .what h2 {
+      font-size: clamp(1.375rem, 3.5vw, 1.75rem);
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.25rem;
+    }
+
+    .what p {
+      font-size: 1rem;
+      color: var(--text-muted);
+      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    /* ---- HOW ---- */
+    .how {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .how-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 4.5rem 1.5rem;
+    }
+
+    .how-inner h2 {
+      font-size: clamp(1.375rem, 3.5vw, 1.75rem);
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+      margin-bottom: 2rem;
+    }
+
+    .steps {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.75rem;
+    }
+
+    .steps li {
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .steps li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.55rem;
+      width: 5px;
+      height: 5px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    .step-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.3rem;
+    }
+
+    .step-desc {
+      font-size: 0.9375rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+      max-width: 520px;
+    }
+
+    /* ---- BOTTOM CTA ---- */
+    .cta-bottom {
+      padding-top: 5rem;
+      padding-bottom: 6rem;
+      text-align: center;
+    }
+
+    .cta-bottom p {
+      font-size: 1.0625rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+      max-width: 440px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.65;
+    }
+
+    /* ---- FOOTER ---- */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="/" class="wordmark">Amplefi</a>
+    <a href="#signup" class="nav-cta">Sign up</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Run your hospital ahead of demand, not behind it.</h1>
+    <p>Real-time coordination for the floor, the shift, and the decisions that keep patients moving and staff focused.</p>
+    <a href="#signup" class="btn-primary">Sign up</a>
+  </section>
+
+  <hr class="divider">
+
+  <!-- WHAT WE DO -->
+  <section class="what">
+    <p class="section-label">What we do</p>
+    <h2>We help hospitals see constraints earlier and act while there is still time.</h2>
+    <p>Amplefi is a hospital management system that replaces reactive scrambling with preemptive operations. We surface patient flow bottlenecks, discharge delays, and clinical risks before they cascade, and we put decisions in the hands of the people on the floor who can act on them.</p>
+  </section>
+
+  <!-- HOW WE DO IT -->
+  <div class="how">
+    <div class="how-inner">
+      <p class="section-label">How we do it</p>
+      <h2>Three steps. Built around your operations, not around software.</h2>
+      <ol class="steps">
+        <li>
+          <p class="step-title">Operational study</p>
+          <p class="step-desc">We embed with your team onsite to map your real workflows — where decisions stall, where handoffs break, and where staff are compensating for system gaps.</p>
+        </li>
+        <li>
+          <p class="step-title">Preemptive protocols</p>
+          <p class="step-desc">We design clinical and operational protocols that trigger action before problems escalate — around discharge readiness, bed assignment, and early risk signals.</p>
+        </li>
+        <li>
+          <p class="step-title">Distributed authority</p>
+          <p class="step-desc">We push decision-making to the floor with clear escalation paths, so the right people act in real time instead of waiting for permission.</p>
+        </li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- BOTTOM CTA -->
+  <section class="cta-bottom" id="signup">
+    <p>Better operations come from better execution, not more tools. Start with an operational analysis.</p>
+    <a href="mailto:hello@amplefi.com?subject=Operational%20Analysis%20Request" class="btn-primary">Sign up. No extra fluff.</a>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Amplefi</p>
+  </footer>
+
+</body>
+</html>

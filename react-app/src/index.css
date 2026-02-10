@@ -1,0 +1,85 @@
+/* ---- Fonts ---- */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+
+/* ---- Reset & Base ---- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Palette */
+  --ink: #0B0D0F;
+  --navy: #0A1F44;
+  --slate: #5B6470;
+  --steel: #8A94A6;
+  --off-white: #F7F8FA;
+  --accent: #4A90D9;
+  --white: #FFFFFF;
+
+  /* Semantic tokens — light mode */
+  --text-primary: var(--ink);
+  --text-heading: var(--navy);
+  --text-muted: var(--slate);
+  --text-subtle: var(--steel);
+  --bg-base: var(--white);
+  --bg-secondary: var(--off-white);
+  --bg-elevated: var(--white);
+  --border: #D8DCE3;
+  --border-subtle: #E2E6EB;
+  --cta-bg: var(--navy);
+  --cta-text: var(--white);
+
+  /* Layout */
+  --max-width: 760px;
+  --gutter: 1.5rem;
+
+  /* Type */
+  --font-heading: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'IBM Plex Sans', system-ui, sans-serif;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  background: var(--bg-base);
+  line-height: 1.6;
+}
+
+/* ---- Section reveal animation ---- */
+@keyframes revealUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply to all top-level sections/divs */
+section,
+div[class*="wrapper"] {
+  animation: revealUp 0.7s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+/* Staggered delays for each section on page load */
+section:nth-of-type(1) { animation-delay: 0.05s; }
+section:nth-of-type(2) { animation-delay: 0.15s; }
+div[class*="wrapper"]  { animation-delay: 0.25s; }
+section:nth-of-type(3) { animation-delay: 0.35s; }
+
+/* ---- Selection color ---- */
+::selection {
+  background: var(--accent);
+  color: var(--white);
+}
