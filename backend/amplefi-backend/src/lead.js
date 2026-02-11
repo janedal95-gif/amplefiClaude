@@ -63,7 +63,7 @@ async function sendAutoReply(toAddress) {
     <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%;background-color:#0B1B34;mso-table-lspace:0pt;mso-table-rspace:0pt;">
       <tr>
         <td align="center" style="padding:0;margin:0;background-color:#0B1B34;">
-          <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" style="width:100%;max-width:600px;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" style="width:600px;max-width:600px;mso-table-lspace:0pt;mso-table-rspace:0pt;">
             <tr>
               <td
                 background="${HERO_IMAGE_URL}"
@@ -79,40 +79,46 @@ async function sendAutoReply(toAddress) {
                 <![endif]-->
                 <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" height="720" style="width:100%;height:720px;">
                   <tr>
-                    <td align="center" valign="top" style="padding:56px 22px 24px 22px;">
-                      <h1 style="margin:0 0 18px 0;font-family:Arial,sans-serif;font-size:32px;line-height:1.25;font-weight:800;color:#FFFFFF;text-shadow:0 2px 6px rgba(0,0,0,0.6);">
-                        Thank you for requesting a Demo with Amplefi.
-                      </h1>
-                      <p style="margin:0 0 12px 0;font-family:Arial,sans-serif;font-size:18px;line-height:1.6;color:#FFFFFF;text-shadow:0 2px 6px rgba(0,0,0,0.6);">
-                        You are on your first step towards a new Hospital.
-                      </p>
-                      <p style="margin:0 0 26px 0;font-family:Arial,sans-serif;font-size:18px;line-height:1.6;color:#FFFFFF;text-shadow:0 2px 6px rgba(0,0,0,0.6);">
-                        Someone from our team will be in contact with you shortly.<br />
-                        Or, if you would like to schedule today, use the link below.
-                      </p>
-                      <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                    <td align="center" valign="top" style="padding:64px 20px 18px 20px;">
+                      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="544" style="width:100%;max-width:544px;background-color:transparent;border-radius:16px;">
                         <tr>
-                          <td bgcolor="#0B1B34" style="border-radius:6px;">
-                            <a
-                              href="https://app.acuityscheduling.com/schedule.php?owner=37410694"
-                              style="display:inline-block;padding:14px 24px;font-family:Arial,sans-serif;font-size:16px;line-height:1;color:#FFFFFF;text-decoration:none;font-weight:800;"
-                            >
-                              Schedule Now
-                            </a>
+                          <td align="center" style="padding:36px 28px;">
+                            <h1 style="margin:0 0 18px 0;font-family:Arial,sans-serif;font-size:32px;line-height:1.25;font-weight:800;color:#FFFFFF;">
+                              Thank you for requesting a Demo with Amplefi.
+                            </h1>
+                            <p style="margin:0 0 12px 0;font-family:Arial,sans-serif;font-size:18px;line-height:1.6;color:#FFFFFF;">
+                              You are on your first step towards a new Hospital.
+                            </p>
+                            <p style="margin:0 0 26px 0;font-family:Arial,sans-serif;font-size:18px;line-height:1.6;color:#FFFFFF;">
+                              Someone from our team will be in contact with you shortly.<br />
+                              Or, if you would like to schedule today, use the link below.
+                            </p>
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                              <tr>
+                                <td bgcolor="#FFFFFF" style="border-radius:10px;">
+                                  <a
+                                    href="https://app.acuityscheduling.com/schedule.php?owner=37410694"
+                                    style="display:inline-block;padding:14px 22px;font-family:Arial,sans-serif;font-size:16px;line-height:1;color:#0B1B34;text-decoration:none;font-weight:800;"
+                                  >
+                                    Schedule Now
+                                  </a>
+                                </td>
+                              </tr>
+                            </table>
                           </td>
                         </tr>
                       </table>
                     </td>
                   </tr>
                   <tr>
-                    <td align="center" valign="bottom" style="padding:24px 18px 28px 18px;">
-                      <p style="margin:0 0 8px 0;font-family:Arial,sans-serif;font-size:14px;line-height:1.5;color:#FFFFFF;text-shadow:0 2px 6px rgba(0,0,0,0.6);">
+                    <td align="center" valign="bottom" style="padding:20px 18px 28px 18px;">
+                      <p style="margin:0 0 8px 0;font-family:Arial,sans-serif;font-size:14px;line-height:1.5;color:#FFFFFF;">
                         Amplefi OPS LLC • <a href="https://amplefi.com" style="color:#FFFFFF;text-decoration:underline;">https://amplefi.com</a>
                       </p>
-                      <p style="margin:0 0 6px 0;font-family:Arial,sans-serif;font-size:13px;line-height:1.5;color:#FFFFFF;text-shadow:0 2px 6px rgba(0,0,0,0.6);">
+                      <p style="margin:0 0 6px 0;font-family:Arial,sans-serif;font-size:13px;line-height:1.5;color:#FFFFFF;">
                         <a href="${unsubscribeUrl}" style="color:#FFFFFF;text-decoration:underline;">Unsubscribe</a>
                       </p>
-                      <p style="margin:0;font-family:Arial,sans-serif;font-size:13px;line-height:1.5;color:#FFFFFF;text-shadow:0 2px 6px rgba(0,0,0,0.6);">
+                      <p style="margin:0;font-family:Arial,sans-serif;font-size:13px;line-height:1.5;color:#FFFFFF;">
                         If you no longer want to receive emails from Amplefi OPS LLC, unsubscribe here.
                       </p>
                     </td>

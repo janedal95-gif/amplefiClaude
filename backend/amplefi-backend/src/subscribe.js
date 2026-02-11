@@ -49,7 +49,9 @@ async function getSubscriberStatus(email) {
   return result.Item?.status?.S || "";
 }
 
-const SUBSCRIBE_AUTO_REPLY_HTML = `
+async function sendAutoReply(toAddress) {
+  const unsubscribeUrl = buildUnsubscribeUrl(toAddress);
+  const html = `
 <!doctype html>
 <html lang="en" xmlns:v="urn:schemas-microsoft-com:vml">
   <head>
@@ -61,7 +63,7 @@ const SUBSCRIBE_AUTO_REPLY_HTML = `
     <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="width:100%;background-color:#0B1B34;mso-table-lspace:0pt;mso-table-rspace:0pt;">
       <tr>
         <td align="center" style="padding:0;margin:0;background-color:#0B1B34;">
-          <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" style="width:100%;max-width:600px;mso-table-lspace:0pt;mso-table-rspace:0pt;">
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" style="width:600px;max-width:600px;mso-table-lspace:0pt;mso-table-rspace:0pt;">
             <tr>
               <td
                 background="${HERO_IMAGE_URL}"
@@ -77,39 +79,45 @@ const SUBSCRIBE_AUTO_REPLY_HTML = `
                 <![endif]-->
                 <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" height="720" style="width:100%;height:720px;">
                   <tr>
-                    <td align="center" valign="top" style="padding:56px 22px 24px 22px;">
-                      <h1 style="margin:0 0 18px 0;font-family:Arial,sans-serif;font-size:32px;line-height:1.25;font-weight:800;color:#FFFFFF;text-shadow:0 2px 6px rgba(0,0,0,0.6);">
-                        Thank you for subscribing to Amplefi.
-                      </h1>
-                      <p style="margin:0 0 12px 0;font-family:Arial,sans-serif;font-size:18px;line-height:1.6;color:#FFFFFF;text-shadow:0 2px 6px rgba(0,0,0,0.6);">
-                        You're now connected to insights, strategy, and innovation shaping the future of hospital operations.
-                      </p>
-                      <p style="margin:0 0 26px 0;font-family:Arial,sans-serif;font-size:18px;line-height:1.6;color:#FFFFFF;text-shadow:0 2px 6px rgba(0,0,0,0.6);">
-                        We'll share updates, tools, and opportunities to help you build and operate your independent hospital with confidence.
-                      </p>
-                      <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                    <td align="center" valign="top" style="padding:64px 20px 18px 20px;">
+                      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="544" style="width:100%;max-width:544px;background-color:transparent;border-radius:16px;">
                         <tr>
-                          <td bgcolor="#0B1B34" style="border-radius:6px;">
-                            <a
-                              href="https://amplefi.com"
-                              style="display:inline-block;padding:14px 24px;font-family:Arial,sans-serif;font-size:16px;line-height:1;color:#FFFFFF;text-decoration:none;font-weight:800;"
-                            >
-                              Visit Amplefi
-                            </a>
+                          <td align="center" style="padding:36px 28px;">
+                            <h1 style="margin:0 0 18px 0;font-family:Arial,sans-serif;font-size:32px;line-height:1.25;font-weight:800;color:#FFFFFF;">
+                              Thank you for subscribing to Amplefi.
+                            </h1>
+                            <p style="margin:0 0 12px 0;font-family:Arial,sans-serif;font-size:18px;line-height:1.6;color:#FFFFFF;">
+                              You're now connected to insights, strategy, and innovation shaping the future of hospital operations.
+                            </p>
+                            <p style="margin:0 0 26px 0;font-family:Arial,sans-serif;font-size:18px;line-height:1.6;color:#FFFFFF;">
+                              We'll share updates, tools, and opportunities to help you build and operate your independent hospital with confidence.
+                            </p>
+                            <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+                              <tr>
+                                <td bgcolor="#FFFFFF" style="border-radius:10px;">
+                                  <a
+                                    href="https://amplefi.com"
+                                    style="display:inline-block;padding:14px 22px;font-family:Arial,sans-serif;font-size:16px;line-height:1;color:#0B1B34;text-decoration:none;font-weight:800;"
+                                  >
+                                    Visit Amplefi
+                                  </a>
+                                </td>
+                              </tr>
+                            </table>
                           </td>
                         </tr>
                       </table>
                     </td>
                   </tr>
                   <tr>
-                    <td align="center" valign="bottom" style="padding:24px 18px 28px 18px;">
-                      <p style="margin:0 0 8px 0;font-family:Arial,sans-serif;font-size:14px;line-height:1.5;color:#FFFFFF;text-shadow:0 2px 6px rgba(0,0,0,0.6);">
+                    <td align="center" valign="bottom" style="padding:20px 18px 28px 18px;">
+                      <p style="margin:0 0 8px 0;font-family:Arial,sans-serif;font-size:14px;line-height:1.5;color:#FFFFFF;">
                         Amplefi OPS LLC • <a href="https://amplefi.com" style="color:#FFFFFF;text-decoration:underline;">https://amplefi.com</a>
                       </p>
-                      <p style="margin:0 0 6px 0;font-family:Arial,sans-serif;font-size:13px;line-height:1.5;color:#FFFFFF;text-shadow:0 2px 6px rgba(0,0,0,0.6);">
-                        <a href="{{UNSUBSCRIBE_URL}}" style="color:#FFFFFF;text-decoration:underline;">Unsubscribe</a>
+                      <p style="margin:0 0 6px 0;font-family:Arial,sans-serif;font-size:13px;line-height:1.5;color:#FFFFFF;">
+                        <a href="${unsubscribeUrl}" style="color:#FFFFFF;text-decoration:underline;">Unsubscribe</a>
                       </p>
-                      <p style="margin:0;font-family:Arial,sans-serif;font-size:13px;line-height:1.5;color:#FFFFFF;text-shadow:0 2px 6px rgba(0,0,0,0.6);">
+                      <p style="margin:0;font-family:Arial,sans-serif;font-size:13px;line-height:1.5;color:#FFFFFF;">
                         If you no longer want to receive emails from Amplefi OPS LLC, unsubscribe here.
                       </p>
                     </td>
@@ -129,24 +137,22 @@ const SUBSCRIBE_AUTO_REPLY_HTML = `
 </html>
 `;
 
-const SUBSCRIBE_AUTO_REPLY_TEXT = [
-  "Thank you for subscribing to Amplefi.",
-  "",
-  "You are now connected to insights, strategy, and innovation shaping the future of hospital operations.",
-  "",
-  "We will be sharing updates, tools, and opportunities to help you build and operate your independent hospital with confidence.",
-  "",
-  "Visit Amplefi: https://amplefi.com",
-  "",
-  "Amplefi OPS LLC",
-  "https://amplefi.com",
-  "",
-  "Unsubscribe: {{UNSUBSCRIBE_URL}}",
-  "If you no longer want to receive emails from Amplefi OPS LLC, unsubscribe here.",
-].join("\n");
+  const text = [
+    "Thank you for subscribing to Amplefi.",
+    "",
+    "You are now connected to insights, strategy, and innovation shaping the future of hospital operations.",
+    "",
+    "We will be sharing updates, tools, and opportunities to help you build and operate your independent hospital with confidence.",
+    "",
+    "Visit Amplefi: https://amplefi.com",
+    "",
+    "Amplefi OPS LLC",
+    "https://amplefi.com",
+    "",
+    "Unsubscribe: " + unsubscribeUrl,
+    "If you no longer want to receive emails from Amplefi OPS LLC, unsubscribe here.",
+  ].join("\n");
 
-async function sendAutoReply(toAddress) {
-  const unsubscribeUrl = buildUnsubscribeUrl(toAddress);
   await ses.send(
     new SendEmailCommand({
       Source: process.env.FROM_EMAIL || DEFAULT_FROM_EMAIL,
@@ -160,11 +166,11 @@ async function sendAutoReply(toAddress) {
         },
         Body: {
           Text: {
-            Data: SUBSCRIBE_AUTO_REPLY_TEXT.replace("{{UNSUBSCRIBE_URL}}", unsubscribeUrl),
+            Data: text,
             Charset: "UTF-8",
           },
           Html: {
-            Data: SUBSCRIBE_AUTO_REPLY_HTML.replace("{{UNSUBSCRIBE_URL}}", unsubscribeUrl),
+            Data: html,
             Charset: "UTF-8",
           },
         },
