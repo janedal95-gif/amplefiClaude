@@ -138,6 +138,13 @@
   box-shadow: none;
 }
 
+.consent {
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: var(--slate);
+  margin-top: 0.75rem;
+}
+
 .input:disabled,
 .textarea:disabled {
   opacity: 0.5;

@@ -56,6 +56,9 @@ export default function Footer() {
               {status === 'loading' ? 'Subscribing\u2026' : 'Subscribe'}
             </button>
           </form>
+          <p className={styles.consent}>
+            By hitting submit, you agree to receive emails from Amplefi OPS LLC.
+          </p>
           {status === 'error' && (
             <p className={styles.subscribeError}>Something went wrong. Try again.</p>
           )}

@@ -1,0 +1,9 @@
+{
+  "name": "amplefi-backend-functions",
+  "private": true,
+  "version": "1.0.0",
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.883.0",
+    "@aws-sdk/client-ses": "^3.883.0"
+  }
+}

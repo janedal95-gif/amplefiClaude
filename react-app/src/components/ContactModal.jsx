@@ -169,6 +169,9 @@ export default function ContactModal({ open, onClose }) {
               >
                 {status === 'loading' ? 'Submitting\u2026' : 'Submit'}
               </button>
+              <p className={styles.consent}>
+                By hitting submit, you agree to receive emails from Amplefi OPS LLC.
+              </p>
             </form>
           </>
         )}

@@ -75,6 +75,14 @@
   margin-bottom: 1.5rem;
 }
 
+.consent {
+  font-size: 0.75rem;
+  color: #94A3B8;
+  line-height: 1.5;
+  margin-top: -0.75rem;
+  margin-bottom: 1rem;
+}
+
 .subscribeError {
   font-size: 0.8125rem;
   color: #FCA5A5;
