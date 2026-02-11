@@ -100,7 +100,7 @@ async function sendAutoReply(toAddress) {
                               <tr>
                                 <td bgcolor="#FFFFFF" style="border-radius:10px;">
                                   <a
-                                    href="https://app.acuityscheduling.com/schedule.php?owner=37410694"
+                                    href="https://app.acuityscheduling.com/schedule.php?owner=37410694&appointmentType=88569408"
                                     style="display:inline-block;padding:14px 22px;font-family:Arial,sans-serif;font-size:16px;line-height:1;color:#0B1B34;text-decoration:none;font-weight:800;"
                                   >
                                     Schedule Now
@@ -148,7 +148,7 @@ async function sendAutoReply(toAddress) {
     "",
     "Someone from our team will be in contact with you shortly.",
     "Or, if you would like to schedule today, use the link below.",
-    "Schedule Now: https://app.acuityscheduling.com/schedule.php?owner=37410694",
+    "Schedule Now: https://app.acuityscheduling.com/schedule.php?owner=37410694&appointmentType=88569408",
     "",
     "Amplefi OPS LLC - https://amplefi.com",
     "",
