@@ -50,14 +50,8 @@ html {
 body {
   font-family: var(--font-body);
   color: var(--text-primary);
-  background: var(--bg-base) url('/AmplefiWater.jpeg') center / cover fixed no-repeat;
+  background: var(--bg-base);
   line-height: 1.6;
-}
-
-/* Semi-transparent overlay so water texture is subtle behind content */
-.pageWrap {
-  background: rgba(255, 255, 255, 0.88);
-  min-height: 100vh;
 }
 
 /* ---- Section reveal animation ---- */
