@@ -1,25 +1,25 @@
 .hero {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 8rem var(--gutter) 6rem;
+  padding: 8rem var(--gutter) 6.5rem;
 }
 
 .headline {
   font-family: var(--font-heading);
-  font-size: clamp(2.25rem, 5.5vw, 3.5rem);
+  font-size: clamp(2.5rem, 5.5vw, 3.75rem);
   font-weight: 600;
-  line-height: 1.1;
+  line-height: 1.08;
   letter-spacing: -0.035em;
   color: var(--navy);
-  max-width: 660px;
+  max-width: 720px;
 }
 
 .subline {
   margin-top: 1.75rem;
-  font-size: 1.125rem;
+  font-size: 1.1875rem;
   font-weight: 400;
   color: var(--text-muted);
-  max-width: 500px;
+  max-width: 540px;
   line-height: 1.65;
 }
 

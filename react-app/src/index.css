@@ -32,8 +32,8 @@
   --cta-text: var(--white);
 
   /* Layout */
-  --max-width: 920px;
-  --gutter: 1.5rem;
+  --max-width: 1040px;
+  --gutter: 2rem;
 
   /* Type */
   --font-heading: 'Space Grotesk', system-ui, sans-serif;

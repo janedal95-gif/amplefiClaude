@@ -1,7 +1,7 @@
 .footer {
   background: var(--ink);
   border-top: none;
-  padding: 2.5rem var(--gutter);
+  padding: 3rem var(--gutter);
   text-align: center;
 }
 
