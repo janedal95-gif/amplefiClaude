@@ -144,6 +144,16 @@
   cursor: not-allowed;
 }
 
+.honeypot {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .errorMsg {
   font-size: 0.875rem;
   color: #C53030;
@@ -153,6 +163,13 @@
 .confirmation {
   text-align: center;
   padding: 1rem 0;
+}
+
+.successMsg {
+  font-size: 1rem;
+  color: var(--slate);
+  line-height: 1.6;
+  margin-top: 1rem;
 }
 
 @keyframes fadeIn {

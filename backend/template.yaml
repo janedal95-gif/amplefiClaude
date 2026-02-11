@@ -1,0 +1,97 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Amplefi landing page backend — leads and subscribers
+
+Parameters:
+  AllowedOrigin:
+    Type: String
+    Default: https://www.amplefi.com
+    Description: Production domain for CORS
+
+Globals:
+  Function:
+    Runtime: nodejs20.x
+    Timeout: 10
+    MemorySize: 128
+    Architectures:
+      - arm64
+    Environment:
+      Variables:
+        LEADS_TABLE: !Ref LeadsTable
+        SUBSCRIBERS_TABLE: !Ref SubscribersTable
+
+Resources:
+  Api:
+    Type: AWS::Serverless::HttpApi
+    Properties:
+      CorsConfiguration:
+        AllowOrigins:
+          - http://localhost:5173
+          - http://localhost:3000
+          - !Ref AllowedOrigin
+        AllowMethods:
+          - POST
+        AllowHeaders:
+          - Content-Type
+        MaxAge: 86400
+
+  LeadFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      Handler: lead.handler
+      Events:
+        Post:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref Api
+            Path: /lead
+            Method: POST
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref LeadsTable
+
+  SubscribeFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: src/
+      Handler: subscribe.handler
+      Events:
+        Post:
+          Type: HttpApi
+          Properties:
+            ApiId: !Ref Api
+            Path: /subscribe
+            Method: POST
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref SubscribersTable
+
+  LeadsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: AmplefiLeads
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+
+  SubscribersTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: AmplefiSubscribers
+      BillingMode: PAY_PER_REQUEST
+      AttributeDefinitions:
+        - AttributeName: email
+          AttributeType: S
+      KeySchema:
+        - AttributeName: email
+          KeyType: HASH
+
+Outputs:
+  ApiUrl:
+    Description: API endpoint — copy this value into VITE_API_BASE_URL
+    Value: !Sub https://${Api}.execute-api.${AWS::Region}.amazonaws.com
