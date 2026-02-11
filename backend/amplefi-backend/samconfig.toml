@@ -19,7 +19,7 @@ confirm_changeset = true
 resolve_s3 = true
 s3_prefix = "amplefi-backend"
 region = "us-east-1"
-parameter_overrides = "AllowedOrigins=\"https://amplefi.com,https://www.amplefi.com,http://localhost:5173,http://localhost:3000\""
+parameter_overrides = "AllowedOrigins=\"https://amplefi.com,https://www.amplefi.com,http://localhost:5173,http://localhost:3000\" NotifyEmails=\"jane.dalesandro@amplefi.com\""
 image_repositories = []
 
 [default.package.parameters]

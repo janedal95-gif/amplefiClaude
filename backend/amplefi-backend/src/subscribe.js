@@ -60,39 +60,42 @@ const SUBSCRIBE_AUTO_REPLY_HTML = `
   <body style="margin:0;padding:0;background-color:#08172f;">
     <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background-color:#08172f;">
       <tr>
-        <td align="center" style="padding:24px 12px;">
+        <td align="center" style="padding:12px 8px;">
           <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" style="width:100%;max-width:600px;">
             <tr>
               <td
-                background="https://amplefi.com/AmplefiWater.jpeg"
+                background="${HERO_IMAGE_URL}"
                 bgcolor="#0b1e3d"
-                height="420"
+                height="720"
                 valign="top"
-                style="background-image:url('https://amplefi.com/AmplefiWater.jpeg');background-size:cover;background-position:center center;background-repeat:no-repeat;border-radius:10px;overflow:hidden;"
+                style="background-image:url('${HERO_IMAGE_URL}');background-size:cover;background-position:center center;background-repeat:no-repeat;border-radius:10px;overflow:hidden;"
               >
                 <!--[if gte mso 9]>
-                <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:600px;height:420px;">
-                  <v:fill type="frame" src="https://amplefi.com/AmplefiWater.jpeg" color="#0b1e3d" />
+                <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:600px;height:720px;">
+                  <v:fill type="frame" src="${HERO_IMAGE_URL}" color="#0b1e3d" />
                   <v:textbox inset="0,0,0,0">
                 <![endif]-->
-                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" height="420" style="height:420px;background-color:rgba(11,30,61,0.72);">
+                <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" height="720" style="height:720px;background-color:rgba(0,0,0,0.45);">
                   <tr>
-                    <td valign="middle" align="center" style="padding:36px 36px 22px 36px;">
-                      <h1 style="margin:0 0 16px 0;font-family:Arial,sans-serif;font-size:30px;line-height:1.25;font-weight:700;color:#ffffff;text-shadow:0 1px 2px rgba(0,0,0,0.45);">
+                    <td height="120" style="height:120px;font-size:0;line-height:0;">&nbsp;</td>
+                  </tr>
+                  <tr>
+                    <td valign="top" align="center" style="padding:0 40px 0 40px;">
+                      <h1 style="margin:0 0 20px 0;font-family:Arial,sans-serif;font-size:32px;line-height:1.3;font-weight:700;color:#ffffff;text-shadow:0 2px 6px rgba(0,0,0,0.6);">
                         Thank you for subscribing to Amplefi.
                       </h1>
-                      <p style="margin:0 0 12px 0;font-family:Arial,sans-serif;font-size:17px;line-height:1.6;color:#ffffff;text-shadow:0 1px 1px rgba(0,0,0,0.4);">
+                      <p style="margin:0 0 14px 0;font-family:Arial,sans-serif;font-size:18px;line-height:1.6;color:#ffffff;text-shadow:0 2px 6px rgba(0,0,0,0.6);">
                         You're now connected to insights, strategy, and innovation shaping the future of hospital operations.
                       </p>
-                      <p style="margin:0 0 24px 0;font-family:Arial,sans-serif;font-size:17px;line-height:1.6;color:#ffffff;text-shadow:0 1px 1px rgba(0,0,0,0.4);">
+                      <p style="margin:0 0 28px 0;font-family:Arial,sans-serif;font-size:18px;line-height:1.6;color:#ffffff;text-shadow:0 2px 6px rgba(0,0,0,0.6);">
                         We'll share updates, tools, and opportunities to help you build and operate your independent hospital with confidence.
                       </p>
                       <table role="presentation" cellpadding="0" cellspacing="0" border="0">
                         <tr>
-                          <td bgcolor="#ffffff" style="border-radius:5px;">
+                          <td bgcolor="#ffffff" style="border-radius:6px;">
                             <a
                               href="https://amplefi.com"
-                              style="display:inline-block;padding:12px 22px;font-family:Arial,sans-serif;font-size:15px;line-height:1;color:#0b1e3d;text-decoration:none;font-weight:700;"
+                              style="display:inline-block;padding:14px 24px;font-family:Arial,sans-serif;font-size:16px;line-height:1;color:#0b1e3d;text-decoration:none;font-weight:700;"
                             >
                               Visit Amplefi
                             </a>
@@ -101,24 +104,24 @@ const SUBSCRIBE_AUTO_REPLY_HTML = `
                       </table>
                     </td>
                   </tr>
+                  <tr>
+                    <td valign="bottom" align="center" style="padding:0 34px 30px 34px;">
+                      <p style="margin:0 0 8px 0;font-family:Arial,sans-serif;font-size:14px;line-height:1.5;color:#ffffff;text-shadow:0 2px 6px rgba(0,0,0,0.6);">
+                        Amplefi OPS LLC • <a href="https://amplefi.com" style="color:#ffffff;text-decoration:underline;">https://amplefi.com</a>
+                      </p>
+                      <p style="margin:0 0 6px 0;font-family:Arial,sans-serif;font-size:13px;line-height:1.5;color:#ffffff;text-shadow:0 2px 6px rgba(0,0,0,0.6);">
+                        <a href="{{UNSUBSCRIBE_URL}}" style="color:#ffffff;text-decoration:underline;">Unsubscribe</a>
+                      </p>
+                      <p style="margin:0;font-family:Arial,sans-serif;font-size:13px;line-height:1.5;color:#ffffff;text-shadow:0 2px 6px rgba(0,0,0,0.6);">
+                        If you no longer want to receive emails from Amplefi OPS LLC, unsubscribe here.
+                      </p>
+                    </td>
+                  </tr>
                 </table>
                 <!--[if gte mso 9]>
                   </v:textbox>
                 </v:rect>
                 <![endif]-->
-              </td>
-            </tr>
-            <tr>
-              <td style="padding:18px 10px 4px 10px;text-align:center;">
-                <p style="margin:0 0 8px 0;font-family:Arial,sans-serif;font-size:13px;color:#d7dfef;">
-                  Amplefi OPS LLC • <a href="https://amplefi.com" style="color:#d7dfef;">https://amplefi.com</a>
-                </p>
-                <p style="margin:0 0 6px 0;font-family:Arial,sans-serif;font-size:12px;color:#b8c5df;">
-                  <a href="{{UNSUBSCRIBE_URL}}" style="color:#b8c5df;text-decoration:underline;">Unsubscribe</a>
-                </p>
-                <p style="margin:0;font-family:Arial,sans-serif;font-size:12px;color:#b8c5df;">
-                  If you no longer want to receive emails from Amplefi OPS LLC, unsubscribe here.
-                </p>
               </td>
             </tr>
           </table>
@@ -197,14 +200,6 @@ async function sendSubscribeNotification(details) {
         <td style="padding:0 24px 24px 24px;">
           <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse:collapse;">
             <tr><td style="padding:8px 0;font-weight:700;color:#111827;">Email</td><td style="padding:8px 0;color:#111827;">${escapeHtml(details.email)}</td></tr>
-            <tr><td style="padding:8px 0;font-weight:700;color:#111827;">Timestamp</td><td style="padding:8px 0;color:#111827;">${escapeHtml(details.timestamp)}</td></tr>
-            <tr><td style="padding:8px 0;font-weight:700;color:#111827;">Page Path</td><td style="padding:8px 0;color:#111827;">${escapeHtml(details.pagePath)}</td></tr>
-            <tr><td style="padding:8px 0;font-weight:700;color:#111827;">UTM Source</td><td style="padding:8px 0;color:#111827;">${escapeHtml(details.utm_source)}</td></tr>
-            <tr><td style="padding:8px 0;font-weight:700;color:#111827;">UTM Medium</td><td style="padding:8px 0;color:#111827;">${escapeHtml(details.utm_medium)}</td></tr>
-            <tr><td style="padding:8px 0;font-weight:700;color:#111827;">UTM Campaign</td><td style="padding:8px 0;color:#111827;">${escapeHtml(details.utm_campaign)}</td></tr>
-            <tr><td style="padding:8px 0;font-weight:700;color:#111827;">UTM Term</td><td style="padding:8px 0;color:#111827;">${escapeHtml(details.utm_term)}</td></tr>
-            <tr><td style="padding:8px 0;font-weight:700;color:#111827;">UTM Content</td><td style="padding:8px 0;color:#111827;">${escapeHtml(details.utm_content)}</td></tr>
-            <tr><td style="padding:8px 0;font-weight:700;color:#111827;">User Agent</td><td style="padding:8px 0;color:#111827;">${escapeHtml(details.userAgent)}</td></tr>
           </table>
         </td>
       </tr>
@@ -217,14 +212,6 @@ async function sendSubscribeNotification(details) {
     "New Subscriber",
     "",
     `Email: ${details.email}`,
-    `Timestamp: ${details.timestamp}`,
-    `Page Path: ${details.pagePath}`,
-    `UTM Source: ${details.utm_source}`,
-    `UTM Medium: ${details.utm_medium}`,
-    `UTM Campaign: ${details.utm_campaign}`,
-    `UTM Term: ${details.utm_term}`,
-    `UTM Content: ${details.utm_content}`,
-    `User Agent: ${details.userAgent}`,
   ].join("\n");
 
   await ses.send(
@@ -305,14 +292,6 @@ exports.handler = async (event) => {
 
     const notificationDetails = {
       email,
-      timestamp: String(body.timestamp || now),
-      pagePath: String(body.pagePath || ""),
-      utm_source: String(body.utm_source || ""),
-      utm_medium: String(body.utm_medium || ""),
-      utm_campaign: String(body.utm_campaign || ""),
-      utm_term: String(body.utm_term || ""),
-      utm_content: String(body.utm_content || ""),
-      userAgent: String(body.userAgent || ""),
     };
 
     if (existingStatus !== "unsubscribed") {
