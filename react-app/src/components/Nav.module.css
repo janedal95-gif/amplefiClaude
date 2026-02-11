@@ -18,13 +18,16 @@
 }
 
 .wordmark {
-  font-family: var(--font-heading);
-  font-size: 1.0625rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--navy);
+  display: flex;
+  align-items: center;
   text-decoration: none;
+}
+
+.logo {
+  height: 1.75rem;
+  width: auto;
+  display: block;
+  filter: brightness(0);
 }
 
 .cta {

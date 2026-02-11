@@ -14,7 +14,7 @@ export default function App() {
   const closeModal = useCallback(() => setModalOpen(false), []);
 
   return (
-    <>
+    <div className="pageWrap">
       <Nav onRequestDemo={openModal} />
       <Hero onRequestDemo={openModal} />
       <Divider />
@@ -23,6 +23,6 @@ export default function App() {
       <CtaBottom onRequestDemo={openModal} />
       <Footer />
       <ContactModal open={modalOpen} onClose={closeModal} />
-    </>
+    </div>
   );
 }

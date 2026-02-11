@@ -5,6 +5,13 @@
   text-align: center;
 }
 
+.logo {
+  height: 2rem;
+  width: auto;
+  display: block;
+  margin: 0 auto 1rem;
+}
+
 .footer p {
   font-family: var(--font-body);
   font-size: 0.8125rem;
