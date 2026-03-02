@@ -13,7 +13,7 @@ export default function Hero({ onRequestDemo }) {
           Real-time coordination for the floor, the shift, and the decisions that
           keep patients moving and staff focused.
         </p>
-        <Button onClick={onRequestDemo} className={styles.cta}>Request a Demo</Button>
+        <Button onClick={onRequestDemo} className={styles.cta}>Let’s have a coffee?</Button>
       </div>
     </section>
   );
