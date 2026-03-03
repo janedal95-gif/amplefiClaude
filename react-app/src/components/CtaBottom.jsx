@@ -9,7 +9,7 @@ export default function CtaBottom({ onRequestDemo }) {
         an operational analysis.
       </p>
       <Button onClick={onRequestDemo}>
-        Request a Demo
+        Let’s have a coffee?
       </Button>
     </section>
   );
