@@ -14,9 +14,6 @@ export default function CtaBottom({ onRequestDemo }) {
           <Button onClick={onRequestDemo} arrow>
             Get an operational analysis
           </Button>
-          <Button href="mailto:hello@amplefi.com" ghost>
-            hello@amplefi.com
-          </Button>
         </div>
       </div>
     </section>
