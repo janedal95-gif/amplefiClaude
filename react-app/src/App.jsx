@@ -4,6 +4,7 @@ import Hero from './components/Hero';
 import Divider from './components/Divider';
 import WhatWeDo from './components/WhatWeDo';
 import HowWeDoIt from './components/HowWeDoIt';
+import Differentiation from './components/Differentiation';
 import CtaBottom from './components/CtaBottom';
 import Footer from './components/Footer';
 import ContactModal from './components/ContactModal';
@@ -20,6 +21,7 @@ export default function App() {
       <Divider />
       <WhatWeDo />
       <HowWeDoIt />
+      <Differentiation />
       <CtaBottom onRequestDemo={openModal} />
       <Footer />
       <ContactModal open={modalOpen} onClose={closeModal} />

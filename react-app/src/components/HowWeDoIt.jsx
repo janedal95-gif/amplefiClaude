@@ -5,17 +5,17 @@ const steps = [
   {
     title: 'Operational study',
     description:
-      'We spend time with your team to understand how work actually moves \u2014 where it flows, where it stalls, and where people are quietly compensating for gaps.',
+      'We work alongside your team to understand how work actually moves \u2014 where it flows, where it stalls, and what people do to get around the gaps.',
   },
   {
     title: 'Targeted fixes',
     description:
-      'We identify the specific friction points creating the most drag and design direct, simple interventions. No theoretical frameworks. No generic recommendations.',
+      'We pinpoint the specific issues causing the most drag and design direct, simple interventions. No frameworks. No generic playbooks.',
   },
   {
     title: 'On-the-floor execution',
     description:
-      'We implement changes with your team, not just deliver findings. We stay until the fix holds and the problem stops recurring.',
+      'We implement changes with your team \u2014 not in a deck, not from a distance. We stay until the fix is in place and the problem stops recurring.',
   },
 ];
 
