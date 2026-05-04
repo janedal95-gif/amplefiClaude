@@ -9,16 +9,6 @@ export default function Footer() {
             <img src="/amplefi-logo-ink.png" alt="Amplefi" className={styles.logo} />
           </a>
         </div>
-        <div className={styles.bottom}>
-          <div className={styles.colophon}>
-            &copy; {new Date().getFullYear()} AMPLEFI LLC<br />
-            OPERATIONAL DIAGNOSTICS &amp; REMEDIATION
-          </div>
-          <div className={`${styles.colophon} ${styles.right}`}>
-            TAMPA, FLORIDA<br />
-            HELLO@AMPLEFI.COM
-          </div>
-        </div>
       </div>
     </footer>
   );
