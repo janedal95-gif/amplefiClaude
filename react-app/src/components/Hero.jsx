@@ -10,7 +10,7 @@ export default function Hero({ onRequestDemo }) {
       <div className={styles.shell}>
         <div className={styles.meta}>
           <span className={styles.metaLabel}>Operational diagnostics &amp; remediation</span>
-          <span className={styles.metaLabel}>Est. 2024 — New York</span>
+          <span className={styles.metaLabel}>Tampa, Florida</span>
         </div>
         <div>
           <h1 className={styles.headline}>
