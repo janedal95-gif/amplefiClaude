@@ -5,8 +5,8 @@ export default function CtaBottom({ onRequestDemo }) {
   return (
     <section className={styles.section}>
       <p className={styles.text}>
-        Better operations come from better execution, not more tools. Start with
-        an operational analysis.
+        Better operations don't require more tools or bigger processes. They
+        require removing what's actually slowing you down.
       </p>
       <Button onClick={onRequestDemo}>
         Let’s have a coffee?

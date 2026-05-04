@@ -7,11 +7,11 @@ export default function Hero({ onRequestDemo }) {
       <div className={styles.overlay} />
       <div className={styles.inner}>
         <h1 className={styles.headline}>
-          Run your hospital ahead of demand, not behind it.
+          Fix the recurring problems your team has learned to live with.
         </h1>
         <p className={styles.subline}>
-          Real-time coordination for the floor, the shift, and the decisions that
-          keep patients moving and staff focused.
+          Amplefi goes into your operations, finds the friction points slowing
+          your team down — delays, broken handoffs, slow decisions — and removes them.
         </p>
         <Button onClick={onRequestDemo} className={styles.cta}>Let’s have a coffee?</Button>
       </div>

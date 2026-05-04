@@ -6,13 +6,14 @@ export default function WhatWeDo() {
     <section className={styles.section}>
       <SectionLabel>What we do</SectionLabel>
       <h2 className={styles.heading}>
-        We help hospitals see constraints earlier and act while there is still time.
+        Most operational drag isn't one big problem. It's the same small ones, repeated every day.
       </h2>
       <p className={styles.body}>
-        Amplefi is a hospital management system that replaces reactive scrambling
-        with preemptive operations. We surface patient flow bottlenecks, discharge
-        delays, and clinical risks before they cascade, and we put decisions in the
-        hands of the people on the floor who can act on them.
+        Teams adapt to friction. They build workarounds, absorb delays, and learn
+        to compensate — until it feels normal. Amplefi identifies what's actually
+        slowing your operations down and fixes it at the source. Not with new
+        software or a methodology deck. With specific, targeted changes that make
+        the day-to-day work easier.
       </p>
     </section>
   );

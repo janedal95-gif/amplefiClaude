@@ -5,17 +5,17 @@ const steps = [
   {
     title: 'Operational study',
     description:
-      'We embed with your team onsite to map your real workflows \u2014 where decisions stall, where handoffs break, and where staff are compensating for system gaps.',
+      'We spend time with your team to understand how work actually moves \u2014 where it flows, where it stalls, and where people are quietly compensating for gaps.',
   },
   {
-    title: 'Preemptive protocols',
+    title: 'Targeted fixes',
     description:
-      'We design clinical and operational protocols that trigger action before problems escalate \u2014 around discharge readiness, bed assignment, and early risk signals.',
+      'We identify the specific friction points creating the most drag and design direct, simple interventions. No theoretical frameworks. No generic recommendations.',
   },
   {
-    title: 'Distributed authority',
+    title: 'On-the-floor execution',
     description:
-      'We push decision-making to the floor with clear escalation paths, so the right people act in real time instead of waiting for permission.',
+      'We implement changes with your team, not just deliver findings. We stay until the fix holds and the problem stops recurring.',
   },
 ];
 
@@ -25,7 +25,7 @@ export default function HowWeDoIt() {
       <div className={styles.inner}>
         <SectionLabel>How we do it</SectionLabel>
         <h2 className={styles.heading}>
-          Three steps. Built around your operations, not around software.
+          Three steps. No overhead, no shelfware.
         </h2>
         <ol className={styles.steps}>
           {steps.map((step) => (
