@@ -25,7 +25,7 @@ export default function Footer() {
 
   return (
     <footer className={styles.footer}>
-      <img src="/amplefiLogoTransparent.png" alt="Amplefi" className={styles.logo} />
+      <img src="/AmplefiLogoTrans.png" alt="Amplefi" className={styles.logo} />
 
       {status === 'success' ? (
         <p className={styles.subscribeSuccess}>You're subscribed.</p>
