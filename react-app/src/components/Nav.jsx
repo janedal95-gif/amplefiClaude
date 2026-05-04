@@ -6,7 +6,7 @@ function Nav({ onRequestDemo }) {
         <nav className={styles.nav}>
             <div className={styles.inner}>
                 <a href="/" className={styles.wordmark}>
-                    Amplefi
+                    <img src="/AmplefiLogoTrans.png" alt="Amplefi" className={styles.logo} />
                 </a>
                 <button className={styles.cta} onClick={onRequestDemo}>
                     Get an operational analysis
