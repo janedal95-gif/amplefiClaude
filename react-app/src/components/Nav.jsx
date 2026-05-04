@@ -9,7 +9,7 @@ function Nav({ onRequestDemo }) {
                     Amplefi
                 </a>
                 <button className={styles.cta} onClick={onRequestDemo}>
-                    Start with an operational analysis
+                    Get an operational analysis
                 </button>
             </div>
         </nav>

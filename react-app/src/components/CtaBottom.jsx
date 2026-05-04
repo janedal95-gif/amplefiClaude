@@ -9,7 +9,7 @@ export default function CtaBottom({ onRequestDemo }) {
         They come from removing what shouldn’t be there.
       </p>
       <Button onClick={onRequestDemo}>
-        Start with an operational analysis
+        Get an operational analysis
       </Button>
     </section>
   );

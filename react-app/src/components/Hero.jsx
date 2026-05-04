@@ -10,10 +10,11 @@ export default function Hero({ onRequestDemo }) {
           Fix the problems your team has learned to work around.
         </h1>
         <p className={styles.subline}>
-          Small issues that never get resolved slow teams down every day.
-          Amplefi finds them — delays, broken handoffs, slow decisions — and removes them.
+          Small, unresolved issues slow teams down every day.
+          Amplefi finds them — delays, broken handoffs, slow decisions — and removes them at the source.
         </p>
-        <Button onClick={onRequestDemo} className={styles.cta}>Start with an operational analysis</Button>
+        <Button onClick={onRequestDemo} className={styles.cta}>Get an operational analysis</Button>
+        <p className={styles.qualifier}>For teams tired of solving the same operational problems every week.</p>
       </div>
     </section>
   );
