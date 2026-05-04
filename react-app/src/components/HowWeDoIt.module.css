@@ -1,72 +1,84 @@
-.wrapper {
-  background: var(--bg-secondary);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+.section {
+  border-top: 1px solid var(--line);
+  padding-top: clamp(72px, 9vw, 140px);
+  padding-bottom: clamp(72px, 9vw, 140px);
 }
 
-.inner {
-  max-width: var(--max-width);
+.grid {
+  max-width: var(--maxw);
   margin: 0 auto;
-  padding: 6rem var(--gutter);
+  padding: 0 var(--pad);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(32px, 5vw, 72px);
+}
+
+@media (min-width: 980px) {
+  .grid {
+    grid-template-columns: 280px 1fr;
+  }
+}
+
+.lead {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: sticky;
+  top: 96px;
+  align-self: start;
+}
+
+.leadNote {
+  font-size: 13px;
+  color: var(--mute);
+  max-width: 24ch;
+  line-height: 1.5;
 }
 
 .heading {
-  font-family: var(--font-heading);
-  font-size: clamp(1.625rem, 3.5vw, 2.25rem);
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -0.025em;
-  color: var(--navy);
-  margin-bottom: 3rem;
-  max-width: 640px;
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: clamp(28px, 3.8vw, 52px);
+  line-height: 1.04;
+  letter-spacing: -0.028em;
+  text-wrap: balance;
+  max-width: 22ch;
+  color: var(--ink);
+}
+
+.heading em {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
 }
 
 .steps {
   list-style: none;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.25rem;
-  counter-reset: step;
-}
-
-@media (min-width: 52rem) {
-  .steps {
-    grid-template-columns: repeat(3, 1fr);
-  }
+  margin-top: 48px;
 }
 
 .step {
-  position: relative;
-  padding: 1.75rem;
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
-  counter-increment: step;
+  padding: clamp(28px, 3.5vw, 44px) 0;
+  border-top: 1px solid var(--line);
 }
 
-.step::before {
-  content: counter(step, decimal-leading-zero);
-  display: block;
-  font-family: var(--font-heading);
-  font-size: 0.6875rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  color: var(--accent);
-  margin-bottom: 0.75rem;
+.step:last-child {
+  border-bottom: 1px solid var(--line);
 }
 
 .stepTitle {
-  font-family: var(--font-heading);
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 0.5rem;
-  letter-spacing: -0.01em;
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: clamp(20px, 1.6vw, 24px);
+  letter-spacing: -0.018em;
+  color: var(--ink);
+  margin-bottom: 10px;
 }
 
 .stepDesc {
-  font-size: 0.9375rem;
-  color: var(--text-muted);
-  line-height: 1.65;
+  font-size: clamp(15px, 1.05vw, 17px);
+  color: var(--ink-2);
+  line-height: 1.6;
+  max-width: 60ch;
 }

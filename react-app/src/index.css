@@ -1,7 +1,5 @@
-/* ---- Fonts ---- */
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap');
 
-/* ---- Reset & Base ---- */
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -9,35 +7,21 @@
 }
 
 :root {
-  /* Palette */
-  --ink: #0F172A;
-  --navy: #0F172A;
-  --slate: #475569;
-  --steel: #64748B;
-  --off-white: #F8FAFC;
-  --accent: #2563EB;
-  --white: #FFFFFF;
+  --paper:   #F3F1EC;
+  --paper-2: #EAE7E0;
+  --ink:     #16140F;
+  --ink-2:   #2A2622;
+  --mute:    #7A746B;
+  --mute-2:  #A8A299;
+  --line:    rgba(22, 20, 15, 0.14);
+  --line-2:  rgba(22, 20, 15, 0.08);
 
-  /* Semantic tokens — light mode */
-  --text-primary: var(--ink);
-  --text-heading: var(--navy);
-  --text-muted: var(--slate);
-  --text-subtle: var(--steel);
-  --bg-base: var(--white);
-  --bg-secondary: var(--off-white);
-  --bg-elevated: var(--white);
-  --border: #E2E8F0;
-  --border-subtle: #E2E8F0;
-  --cta-bg: var(--navy);
-  --cta-text: var(--white);
+  --serif: 'Instrument Serif', 'Times New Roman', serif;
+  --sans:  'Geist', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --mono:  'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
 
-  /* Layout */
-  --max-width: 1040px;
-  --gutter: 2rem;
-
-  /* Type */
-  --font-heading: 'Space Grotesk', system-ui, sans-serif;
-  --font-body: 'IBM Plex Sans', system-ui, sans-serif;
+  --pad:  clamp(28px, 6vw, 96px);
+  --maxw: 1440px;
 }
 
 html {
@@ -48,38 +32,21 @@ html {
 }
 
 body {
-  font-family: var(--font-body);
-  color: var(--text-primary);
-  background: var(--bg-base);
-  line-height: 1.6;
+  font-family: var(--sans);
+  color: var(--ink);
+  background: var(--paper);
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 400;
+  letter-spacing: -0.005em;
 }
 
-/* ---- Section reveal animation ---- */
-@keyframes revealUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Apply to all top-level sections/divs */
-section,
-div[class*="wrapper"] {
-  animation: revealUp 0.7s cubic-bezier(0.23, 1, 0.32, 1) both;
-}
-
-/* Staggered delays for each section on page load */
-section:nth-of-type(1) { animation-delay: 0.05s; }
-section:nth-of-type(2) { animation-delay: 0.15s; }
-div[class*="wrapper"]  { animation-delay: 0.25s; }
-section:nth-of-type(3) { animation-delay: 0.35s; }
-
-/* ---- Selection color ---- */
 ::selection {
-  background: var(--accent);
-  color: var(--white);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }

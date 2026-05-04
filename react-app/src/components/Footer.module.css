@@ -1,118 +1,81 @@
 .footer {
-  background: var(--ink);
-  border-top: none;
-  padding: 3rem var(--gutter);
-  text-align: center;
+  border-top: 1px solid var(--line);
+  padding: 48px 0 56px;
+}
+
+.inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 var(--pad);
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
 }
 
 .logo {
-  height: 2rem;
+  height: 54px;
   width: auto;
   display: block;
-  margin: 0 auto 1.5rem;
 }
 
-.wordmark {
-  display: block;
-  font-family: var(--font-heading);
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--white);
-  letter-spacing: -0.02em;
-  margin-bottom: 1.5rem;
-}
-
-.subscribeForm {
+.links {
   display: flex;
-  gap: 0.5rem;
-  justify-content: center;
-  max-width: 380px;
-  margin: 0 auto 1.5rem;
+  gap: 32px;
 }
 
-.emailInput {
-  font-family: var(--font-body);
-  font-size: 0.875rem;
-  color: var(--white);
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 5px;
-  padding: 0.6rem 0.85rem;
-  flex: 1;
-  outline: none;
-  transition: border-color 0.15s;
+.links a {
+  font-size: 13px;
+  color: var(--ink-2);
 }
 
-.emailInput::placeholder {
-  color: #94A3B8;
+.links a:hover {
+  color: var(--ink);
 }
 
-.emailInput:focus {
-  border-color: rgba(255, 255, 255, 0.4);
+.big {
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: clamp(48px, 9vw, 140px);
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+  color: var(--ink);
+  margin-top: 64px;
 }
 
-.emailInput:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
+.big em {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.02em;
 }
 
-.subscribeBtn {
-  font-family: var(--font-heading);
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: var(--navy);
-  background: var(--white);
-  border: none;
-  border-radius: 5px;
-  padding: 0.6rem 1.25rem;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: opacity 0.15s;
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 48px;
 }
 
-.subscribeBtn:hover {
-  opacity: 0.9;
+.colophon {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  letter-spacing: 0.04em;
+  color: var(--mute);
+  line-height: 1.7;
 }
 
-.subscribeBtn:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-.subscribeSuccess {
-  font-size: 0.875rem;
-  color: var(--white);
-  margin-bottom: 1.5rem;
-}
-
-.consent {
-  font-size: 0.75rem;
-  color: #94A3B8;
-  line-height: 1.5;
-  margin-top: -0.75rem;
-  margin-bottom: 1rem;
-}
-
-.subscribeError {
-  font-size: 0.8125rem;
-  color: #FCA5A5;
-  margin-top: -0.75rem;
-  margin-bottom: 1rem;
-}
-
-.honeypot {
-  position: absolute;
-  left: -9999px;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  opacity: 0;
-  pointer-events: none;
-}
-
-.footer p {
-  font-family: var(--font-body);
-  font-size: 0.8125rem;
-  color: #94A3B8;
-  letter-spacing: 0.01em;
+.right {
+  text-align: right;
 }

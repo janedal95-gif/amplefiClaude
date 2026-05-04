@@ -1,56 +1,131 @@
 .hero {
   position: relative;
-  width: 100%;
-  background: url('/AmplefiWater.jpeg') center / cover no-repeat;
-  filter: none;
+  padding-top: clamp(120px, 16vw, 220px);
+  padding-bottom: clamp(96px, 12vw, 180px);
+  overflow: hidden;
+  isolation: isolate;
+  color: var(--paper);
+  background: #0a0f15;
 }
 
-.overlay {
+.bg {
   position: absolute;
   inset: 0;
-  background: rgba(15, 23, 42, 0.48);
-  pointer-events: none;
+  z-index: -2;
 }
 
-.inner {
-  position: relative;
-  z-index: 1;
-  max-width: var(--max-width);
+.bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: contrast(1.05) saturate(0.85) brightness(0.78);
+}
+
+.bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(8,12,16,0.55) 0%, rgba(8,12,16,0.25) 35%, rgba(8,12,16,0.7) 100%),
+    linear-gradient(90deg, rgba(8,12,16,0.6) 0%, rgba(8,12,16,0.15) 60%, rgba(8,12,16,0.0) 100%);
+}
+
+.shell {
+  max-width: var(--maxw);
   margin: 0 auto;
-  padding: 8rem var(--gutter) 7.5rem;
+  padding: 0 var(--pad);
+}
+
+.meta {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: clamp(40px, 7vw, 88px);
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.metaLabel {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(243, 241, 236, 0.75);
 }
 
 .headline {
-  font-family: var(--font-heading);
-  font-size: clamp(2.5rem, 5.5vw, 3.75rem);
-  font-weight: 600;
-  line-height: 1.08;
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: clamp(40px, 6.6vw, 96px);
+  line-height: 0.98;
   letter-spacing: -0.035em;
-  color: var(--white);
-  max-width: 700px;
+  color: var(--paper);
+  text-wrap: balance;
+  max-width: 14ch;
+}
+
+.headline em {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.015em;
 }
 
 .subline {
-  margin-top: 2rem;
-  font-size: 1.1875rem;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 0.78);
-  max-width: 540px;
-  line-height: 1.65;
+  color: rgba(243, 241, 236, 0.86);
+  font-size: clamp(15px, 1.2vw, 18px);
+  line-height: 1.55;
+  max-width: 46ch;
+  margin-top: 32px;
+  letter-spacing: -0.005em;
 }
 
-.cta {
-  margin-top: 3rem;
-  --cta-bg: var(--white);
-  --cta-text: var(--navy);
+.actions {
+  margin-top: 44px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* Invert buttons on dark hero background */
+.heroCta {
+  background: var(--paper) !important;
+  color: var(--ink) !important;
+  border-color: var(--paper) !important;
+}
+
+.heroCta:hover {
+  background: #fff !important;
+}
+
+.heroGhost {
+  background: transparent !important;
+  color: var(--paper) !important;
+  border: 1px solid rgba(243, 241, 236, 0.35) !important;
+}
+
+.heroGhost:hover {
+  border-color: var(--paper) !important;
+  background: transparent !important;
 }
 
 .qualifier {
-  margin-top: 1.25rem;
-  font-size: 0.9375rem;
-  color: rgba(255, 255, 255, 0.5);
-  line-height: 1.5;
+  margin-top: 28px;
+  color: rgba(243, 241, 236, 0.6);
+  font-size: 13.5px;
+  max-width: 46ch;
+  letter-spacing: -0.002em;
+}
+
+.plateCaption {
+  position: absolute;
+  right: var(--pad);
+  bottom: 24px;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(243, 241, 236, 0.55);
 }

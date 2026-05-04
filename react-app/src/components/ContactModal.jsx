@@ -64,7 +64,7 @@ export default function ContactModal({ open, onClose }) {
       onClick={handleBackdropClick}
       role="dialog"
       aria-modal="true"
-      aria-label="Request a Demo"
+      aria-label="Request an analysis"
     >
       <div className={styles.modal}>
         <button className={styles.close} onClick={onClose} aria-label="Close">
@@ -73,16 +73,14 @@ export default function ContactModal({ open, onClose }) {
 
         {status === 'success' ? (
           <div className={styles.confirmation}>
-            <h2 className={styles.heading}>Request a Demo</h2>
-            <p className={styles.successMsg}>
-              Thanks &mdash; we'll reach out shortly.
-            </p>
+            <h4 className={styles.heading}>Received.</h4>
+            <p className={styles.subtext}>We'll be in touch within two business days.</p>
           </div>
         ) : (
           <>
-            <h2 className={styles.heading}>Request a Demo</h2>
+            <h4 className={styles.heading}>Request an <em>analysis.</em></h4>
             <p className={styles.subtext}>
-              Tell us about your hospital. We'll follow up within two business days.
+              Tell us briefly where the drag is. We'll respond within two business days.
             </p>
 
             {status === 'error' && (
@@ -99,79 +97,65 @@ export default function ContactModal({ open, onClose }) {
                 aria-hidden="true"
               />
 
-              <label className={styles.label} htmlFor="demo-fullName">
-                Full name
-              </label>
-              <input
-                className={styles.input}
-                id="demo-fullName"
-                name="fullName"
-                type="text"
-                required
-                ref={firstInputRef}
-                placeholder="Your full name"
-                disabled={status === 'loading'}
-              />
+              <div className={styles.field}>
+                <label className={styles.label} htmlFor="modal-name">Name</label>
+                <input
+                  className={styles.input}
+                  id="modal-name"
+                  name="fullName"
+                  type="text"
+                  required
+                  ref={firstInputRef}
+                  disabled={status === 'loading'}
+                />
+              </div>
 
-              <label className={styles.label} htmlFor="demo-workEmail">
-                Work email
-              </label>
-              <input
-                className={styles.input}
-                id="demo-workEmail"
-                name="workEmail"
-                type="email"
-                required
-                placeholder="you@hospital.org"
-                disabled={status === 'loading'}
-              />
+              <div className={styles.field}>
+                <label className={styles.label} htmlFor="modal-email">Email</label>
+                <input
+                  className={styles.input}
+                  id="modal-email"
+                  name="workEmail"
+                  type="email"
+                  required
+                  disabled={status === 'loading'}
+                />
+              </div>
 
-              <label className={styles.label} htmlFor="demo-title">
-                Title
-              </label>
-              <input
-                className={styles.input}
-                id="demo-title"
-                name="title"
-                type="text"
-                placeholder="e.g. Chief Nursing Officer"
-                disabled={status === 'loading'}
-              />
+              <div className={styles.field}>
+                <label className={styles.label} htmlFor="modal-org">Company</label>
+                <input
+                  className={styles.input}
+                  id="modal-org"
+                  name="organization"
+                  type="text"
+                  disabled={status === 'loading'}
+                />
+              </div>
 
-              <label className={styles.label} htmlFor="demo-organization">
-                Organization
-              </label>
-              <input
-                className={styles.input}
-                id="demo-organization"
-                name="organization"
-                type="text"
-                placeholder="Hospital or health system"
-                disabled={status === 'loading'}
-              />
+              <input type="hidden" name="title" value="" />
 
-              <label className={styles.label} htmlFor="demo-message">
-                Message
-              </label>
-              <textarea
-                className={styles.textarea}
-                id="demo-message"
-                name="message"
-                rows={3}
-                placeholder="What keeps you up at night about your operations?"
-                disabled={status === 'loading'}
-              />
+              <div className={styles.field}>
+                <label className={styles.label} htmlFor="modal-msg">Where is the recurring problem?</label>
+                <textarea
+                  className={styles.textarea}
+                  id="modal-msg"
+                  name="message"
+                  rows={3}
+                  disabled={status === 'loading'}
+                />
+              </div>
 
-              <button
-                className={styles.submit}
-                type="submit"
-                disabled={status === 'loading'}
-              >
-                {status === 'loading' ? 'Submitting\u2026' : 'Submit'}
-              </button>
-              <p className={styles.consent}>
-                By hitting submit, you agree to receive emails from Amplefi OPS LLC.
-              </p>
+              <div className={styles.footer}>
+                <button type="button" className={styles.cancelBtn} onClick={onClose}>Cancel</button>
+                <button
+                  className={styles.submit}
+                  type="submit"
+                  disabled={status === 'loading'}
+                >
+                  {status === 'loading' ? 'Sending…' : 'Send request →'}
+                </button>
+              </div>
             </form>
           </>
         )}

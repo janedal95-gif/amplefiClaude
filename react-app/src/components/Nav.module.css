@@ -1,56 +1,71 @@
 .nav {
   position: sticky;
   top: 0;
-  z-index: 100;
-  background: var(--navy);
+  z-index: 50;
+  background: var(--paper);
+  background: color-mix(in oklab, var(--paper) 88%, transparent);
+  backdrop-filter: saturate(140%) blur(10px);
+  -webkit-backdrop-filter: saturate(140%) blur(10px);
+  border-bottom: 1px solid var(--line-2);
 }
 
-.inner {
+.row {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-  max-width: var(--max-width);
+  height: 68px;
+  max-width: var(--maxw);
   margin: 0 auto;
-  padding: 1.375rem var(--gutter);
+  padding: 0 var(--pad);
 }
 
-.wordmark {
-  display: flex;
+.brand {
+  display: inline-flex;
   align-items: center;
-  text-decoration: none;
-  font-family: var(--font-heading);
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: var(--white);
-  letter-spacing: -0.02em;
 }
 
 .logo {
-  height: 2.25rem;
+  height: 34px;
   width: auto;
   display: block;
 }
 
+.links {
+  display: flex;
+  gap: 36px;
+  align-items: center;
+}
+
+.links a {
+  font-size: 13.5px;
+  color: var(--ink-2);
+  letter-spacing: -0.005em;
+}
+
+.links a:hover {
+  color: var(--ink);
+}
+
 .cta {
-  font-family: var(--font-heading);
-  font-size: 0.8125rem;
-  font-weight: 500;
-  letter-spacing: 0.015em;
-  color: var(--white);
-  background: none;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 5px;
-  padding: 0.4375rem 1rem;
+  font-family: var(--sans);
+  font-size: 13px;
+  padding: 9px 16px;
+  border: 1px solid var(--ink);
+  color: var(--paper);
+  background: var(--ink);
+  border-radius: 999px;
+  letter-spacing: -0.005em;
   cursor: pointer;
-  transition: background 0.15s ease, border-color 0.15s ease;
+  transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .cta:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.4);
+  background: #000;
+  transform: translateY(-1px);
 }
 
-.cta:focus-visible {
-  outline: 2px solid var(--accent);
-  outline-offset: 2px;
+@media (max-width: 760px) {
+  .links {
+    display: none;
+  }
 }

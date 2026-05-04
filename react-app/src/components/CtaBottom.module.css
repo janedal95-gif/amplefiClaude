@@ -1,21 +1,37 @@
 .section {
-  max-width: 100%;
-  margin: 0;
-  padding: 6rem var(--gutter) 6.5rem;
-  text-align: center;
-  background: var(--navy);
-
-  /* Invert button for dark context */
-  --cta-bg: var(--white);
-  --cta-text: var(--navy);
+  border-top: 1px solid var(--line);
 }
 
-.text {
-  font-size: 1.1875rem;
-  color: #94A3B8;
-  margin-bottom: 2.5rem;
-  max-width: 480px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.7;
+.inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: clamp(96px, 12vw, 180px) var(--pad);
+  text-align: left;
+}
+
+.heading {
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: clamp(40px, 6vw, 88px);
+  line-height: 1.0;
+  letter-spacing: -0.034em;
+  text-wrap: balance;
+  max-width: 18ch;
+  color: var(--ink);
+  margin-top: 32px;
+}
+
+.heading em {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.actions {
+  margin-top: 48px;
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: center;
 }
