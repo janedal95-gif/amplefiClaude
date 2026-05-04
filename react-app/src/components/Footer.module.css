@@ -12,6 +12,16 @@
   margin: 0 auto 1.5rem;
 }
 
+.wordmark {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+
 .subscribeForm {
   display: flex;
   gap: 0.5rem;
