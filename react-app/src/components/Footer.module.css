@@ -12,9 +12,16 @@
 .top {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
   gap: 24px;
   flex-wrap: wrap;
+}
+
+.copy {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  letter-spacing: 0.04em;
+  color: var(--mute);
 }
 
 .brand {
