@@ -1,0 +1,680 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Amplefi — Operational fixes for serious teams</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3F1EC;            /* warm off-white */
+    --paper-2:#EAE7E0;          /* a touch deeper */
+    --ink:#16140F;              /* near-black, warm */
+    --ink-2:#2A2622;
+    --mute:#7A746B;             /* warm gray */
+    --mute-2:#A8A299;
+    --line: rgba(22,20,15,0.14);
+    --line-2: rgba(22,20,15,0.08);
+    --accent: #1F2937;          /* deep slate, used very sparingly */
+
+    --serif:'Instrument Serif', 'Times New Roman', serif;
+    --sans:'Geist','Helvetica Neue',Helvetica,Arial,sans-serif;
+    --mono:'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+    --pad: clamp(28px, 6vw, 96px);
+    --maxw: 1440px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+  body{font-size:16px;line-height:1.5;font-weight:400;letter-spacing:-0.005em;}
+  ::selection{background:var(--ink);color:var(--paper);}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+
+  .shell{max-width:var(--maxw);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad);}
+  .hairline{border:0;height:1px;background:var(--line);margin:0;}
+
+  /* ─── Mono labels (eyebrow) ─── */
+  .label{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--mute);
+    font-weight:400;
+  }
+  .label .num{display:none;}
+
+  /* ─── Nav ─── */
+  nav.top{
+    position:sticky;top:0;z-index:50;
+    background:color-mix(in oklab, var(--paper) 88%, transparent);
+    backdrop-filter:saturate(140%) blur(10px);
+    -webkit-backdrop-filter:saturate(140%) blur(10px);
+    border-bottom:1px solid var(--line-2);
+  }
+  nav .row{
+    display:flex;align-items:center;justify-content:space-between;
+    height:68px;
+  }
+  .brand{display:inline-flex;align-items:center;gap:10px;}
+  .brand img{height:34px;width:auto;display:block;}
+  .brand-footer img{height:54px;}
+  .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;}
+  .nav-links{display:flex;gap:36px;align-items:center;}
+  .nav-links a{font-size:13.5px;color:var(--ink-2);letter-spacing:-0.005em;}
+  .nav-links a:hover{color:var(--ink);}
+  .nav-cta{
+    font-family:var(--sans);
+    font-size:13px;
+    padding:9px 16px;
+    border:1px solid var(--ink);
+    color:var(--paper);
+    background:var(--ink);
+    border-radius:999px;
+    letter-spacing:-0.005em;
+    transition:transform .2s ease, background .2s ease;
+  }
+  .nav-cta:hover{background:#000;transform:translateY(-1px);}
+
+  /* ─── Hero ─── */
+  .hero{
+    position:relative;
+    padding-top:clamp(120px, 16vw, 220px);
+    padding-bottom:clamp(96px, 12vw, 180px);
+    overflow:hidden;
+    isolation:isolate;
+    color:var(--paper);
+    background:#0a0f15;
+  }
+  .hero .bg{
+    position:absolute;inset:0;z-index:-2;
+  }
+  .hero .bg img{
+    width:100%;height:100%;object-fit:cover;display:block;
+    filter:contrast(1.05) saturate(0.85) brightness(0.78);
+  }
+  .hero .bg::after{
+    content:"";position:absolute;inset:0;
+    background:
+      linear-gradient(180deg, rgba(8,12,16,0.55) 0%, rgba(8,12,16,0.25) 35%, rgba(8,12,16,0.7) 100%),
+      linear-gradient(90deg, rgba(8,12,16,0.6) 0%, rgba(8,12,16,0.15) 60%, rgba(8,12,16,0.0) 100%);
+  }
+  .hero .grid{
+    display:grid;
+    grid-template-columns: 1fr;
+    gap:clamp(40px, 6vw, 80px);
+    align-items:end;
+  }
+  @media (min-width: 980px){
+    .hero .grid{grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);}
+  }
+  .hero .meta{
+    display:flex;justify-content:space-between;align-items:baseline;
+    margin-bottom:clamp(40px, 7vw, 88px);
+    gap:24px;flex-wrap:wrap;
+    color:rgba(243,241,236,0.75);
+  }
+  .hero .meta .label{color:rgba(243,241,236,0.75);}
+  .hero h1{
+    font-family:var(--sans);
+    font-weight:300;
+    font-size:clamp(40px, 6.6vw, 96px);
+    line-height:0.98;
+    letter-spacing:-0.035em;
+    color:var(--paper);
+    text-wrap:balance;
+    max-width:14ch;
+  }
+  .hero h1 em{
+    font-family:var(--serif);
+    font-style:italic;
+    font-weight:400;
+    letter-spacing:-0.015em;
+  }
+  .hero .sub{
+    color:rgba(243,241,236,0.86);
+    font-size:clamp(15px, 1.2vw, 18px);
+    line-height:1.55;
+    max-width:46ch;
+    margin-top:32px;
+    letter-spacing:-0.005em;
+  }
+  .hero .qualifier{
+    margin-top:28px;
+    color:rgba(243,241,236,0.6);
+    font-size:13.5px;
+    max-width:46ch;
+    letter-spacing:-0.002em;
+  }
+  /* hero buttons invert on dark bg */
+  .hero .btn{
+    background:var(--paper);color:var(--ink);border-color:var(--paper);
+  }
+  .hero .btn:hover{background:#fff;}
+  .hero .btn-ghost{
+    background:transparent;color:var(--paper);border:1px solid rgba(243,241,236,0.35);
+  }
+  .hero .btn-ghost:hover{border-color:var(--paper);}
+  .hero .actions{
+    margin-top:44px;
+    display:flex;gap:14px;align-items:center;flex-wrap:wrap;
+  }
+  .hero .plate-caption{
+    position:absolute;right:clamp(28px,6vw,96px);bottom:24px;
+    font-family:var(--mono);font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;
+    color:rgba(243,241,236,0.55);
+  }
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:var(--sans);font-size:14px;font-weight:500;
+    padding:14px 22px;border-radius:999px;
+    background:var(--ink);color:var(--paper);
+    letter-spacing:-0.005em;
+    border:1px solid var(--ink);
+    transition:transform .25s ease, background .25s ease;
+  }
+  .btn:hover{background:#000;transform:translateY(-1px);}
+  .btn .arrow{display:inline-block;transition:transform .25s ease;}
+  .btn:hover .arrow{transform:translateX(3px);}
+  .btn-ghost{
+    background:transparent;color:var(--ink);border:1px solid var(--line);
+    padding:14px 20px;
+  }
+  .btn-ghost:hover{background:transparent;border-color:var(--ink);}
+
+  /* ─── Section frame ─── */
+  section.block{
+    border-top:1px solid var(--line);
+    padding-top:clamp(72px, 9vw, 140px);
+    padding-bottom:clamp(72px, 9vw, 140px);
+  }
+  .sec-grid{
+    display:grid;
+    grid-template-columns: 1fr;
+    gap:clamp(32px, 5vw, 72px);
+  }
+  @media (min-width: 980px){
+    .sec-grid{grid-template-columns: 280px 1fr;}
+  }
+  .sec-grid .lead{
+    display:flex;flex-direction:column;gap:16px;
+    position:sticky;top:96px;align-self:start;
+  }
+  .sec-grid .lead .label{display:block;}
+  .sec-grid h2{
+    font-family:var(--sans);
+    font-weight:300;
+    font-size:clamp(28px, 3.8vw, 52px);
+    line-height:1.04;
+    letter-spacing:-0.028em;
+    text-wrap:balance;
+    max-width:22ch;
+  }
+  .sec-grid h2 em{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-0.01em;}
+  .sec-grid .body{font-size:clamp(16px,1.15vw,18px);line-height:1.6;color:var(--ink-2);max-width:62ch;}
+  .sec-grid .body p + p{margin-top:1.1em;}
+
+  /* ─── What we do — list ─── */
+  .wwd-list{
+    margin-top:36px;
+    border-top:1px solid var(--line-2);
+  }
+  .wwd-list li{
+    padding:20px 0;
+    border-bottom:1px solid var(--line-2);
+    font-size:clamp(17px,1.2vw,19px);
+    color:var(--ink);
+    list-style:none;
+    letter-spacing:-0.008em;
+    line-height:1.4;
+  }
+  .closing{
+    margin-top:32px;
+    font-family:var(--serif);font-style:italic;
+    font-size:clamp(20px,1.8vw,28px);
+    color:var(--ink);
+    letter-spacing:-0.012em;
+    line-height:1.25;
+    max-width:32ch;
+  }
+
+  /* ─── How — three steps ─── */
+  .how-steps{
+    margin-top:8px;
+    display:grid;grid-template-columns:1fr;gap:0;
+  }
+  .how-steps .step{
+    display:grid;
+    grid-template-columns: 1fr;
+    gap:14px;
+    padding:clamp(28px,3.5vw,44px) 0;
+    border-top:1px solid var(--line);
+    align-items:baseline;
+  }
+  .how-steps .step:last-child{border-bottom:1px solid var(--line);}
+  .how-steps .step-num{
+    font-family:var(--serif);font-style:italic;font-weight:400;
+    font-size:clamp(36px,3.8vw,52px);
+    color:var(--ink);
+    line-height:1;letter-spacing:-0.02em;
+  }
+  .how-steps .step-num sup{font-family:var(--mono);font-style:normal;font-size:10.5px;color:var(--mute);letter-spacing:0.14em;margin-left:2px;vertical-align:super;}
+  .how-steps .step-title{
+    font-family:var(--sans);font-weight:500;font-size:clamp(20px,1.6vw,24px);letter-spacing:-0.018em;
+    margin-bottom:10px;
+  }
+  .how-steps .step-desc{font-size:clamp(15px,1.05vw,17px);color:var(--ink-2);line-height:1.6;max-width:60ch;}
+
+  /* ─── Differentiation — comparison ─── */
+  .compare{
+    display:grid;grid-template-columns:1fr;gap:0;
+    margin-top:8px;
+    border-top:1px solid var(--line);
+  }
+  .compare .row{
+    display:grid;
+    grid-template-columns: 1.3fr 1fr 1fr;
+    gap:clamp(16px,3vw,40px);
+    padding:24px 0;
+    border-bottom:1px solid var(--line-2);
+    align-items:baseline;
+  }
+  .compare .row.head{
+    border-bottom:1px solid var(--line);
+    padding:18px 0;
+  }
+  .compare .row.head span{
+    font-family:var(--mono);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--mute);
+  }
+  .compare .row.head .us{color:var(--ink);font-weight:500;}
+  .compare .topic{font-size:clamp(15px,1.1vw,17px);color:var(--ink);letter-spacing:-0.005em;}
+  .compare .them{font-size:clamp(14px,1vw,15.5px);color:var(--mute);letter-spacing:-0.002em;}
+  .compare .ours{font-size:clamp(14px,1vw,15.5px);color:var(--ink-2);letter-spacing:-0.002em;}
+  .compare .ours::before{
+    content:"";display:inline-block;width:6px;height:6px;border-radius:50%;
+    background:var(--ink);margin-right:10px;transform:translateY(-2px);
+  }
+
+  /* ─── Quiet stat row ─── */
+  .stats{
+    display:grid;grid-template-columns:repeat(3, 1fr);
+    gap:clamp(20px,4vw,64px);
+    padding:clamp(56px,7vw,96px) 0;
+    border-top:1px solid var(--line);
+  }
+  .stats .stat .label{display:block;margin-bottom:14px;}
+  .stats .stat .v{
+    font-family:var(--sans);font-weight:300;
+    font-size:clamp(32px,3.6vw,52px);
+    letter-spacing:-0.03em;line-height:1;color:var(--ink);
+  }
+  .stats .stat .v em{font-family:var(--serif);font-style:italic;font-weight:400;}
+  .stats .stat .d{margin-top:14px;color:var(--mute);font-size:13.5px;max-width:30ch;line-height:1.5;}
+  @media(max-width:760px){.stats{grid-template-columns:1fr;gap:32px;}}
+
+  /* ─── Bottom CTA ─── */
+  .cta-final{
+    border-top:1px solid var(--line);
+    padding-top:clamp(96px,12vw,180px);
+    padding-bottom:clamp(96px,12vw,180px);
+    text-align:left;
+  }
+  .cta-final .label{display:block;margin-bottom:32px;}
+  .cta-final h3{
+    font-family:var(--sans);font-weight:300;
+    font-size:clamp(40px, 6vw, 88px);
+    line-height:1.0;letter-spacing:-0.034em;
+    text-wrap:balance;max-width:18ch;
+    color:var(--ink);
+  }
+  .cta-final h3 em{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-0.01em;}
+  .cta-final .actions{margin-top:48px;display:flex;gap:14px;flex-wrap:wrap;}
+
+  /* ─── Footer ─── */
+  footer{
+    border-top:1px solid var(--line);
+    padding:48px 0 56px;
+  }
+  footer .row{
+    display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;
+  }
+  footer .colophon{
+    color:var(--mute);font-size:12.5px;font-family:var(--mono);letter-spacing:0.04em;
+    line-height:1.7;
+  }
+  footer .links{display:flex;gap:32px;}
+  footer .links a{font-size:13px;color:var(--ink-2);}
+  footer .links a:hover{color:var(--ink);}
+  /* ─── Wide water plate ─── */
+  .plate{
+    position:relative;
+    width:100%;
+    aspect-ratio: 21/8;
+    overflow:hidden;
+    background:#0c1218;
+    border-top:1px solid var(--line);
+    border-bottom:1px solid var(--line);
+  }
+  .plate img{width:100%;height:100%;object-fit:cover;display:block;filter:contrast(1.04) saturate(0.9);}
+  .plate .meta-line{
+    position:absolute;left:0;right:0;bottom:0;
+    display:flex;justify-content:space-between;
+    padding:18px clamp(28px,6vw,96px);
+    color:rgba(243,241,236,0.72);
+    font-family:var(--mono);font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;
+  }
+  .plate .meta-line .pull{
+    color:rgba(243,241,236,0.92);
+    font-family:var(--serif);font-style:italic;font-weight:400;
+    font-size:clamp(20px,2.4vw,32px);text-transform:none;letter-spacing:-0.01em;
+    line-height:1.1;max-width:36ch;
+    position:absolute;left:clamp(28px,6vw,96px);top:clamp(40px,5vw,80px);right:clamp(28px,6vw,96px);
+  }
+
+  /* ─── Footer water mark ─── */
+  footer .big{
+    font-family:var(--sans);font-weight:300;
+    font-size:clamp(48px,9vw,140px);
+    letter-spacing:-0.04em;line-height:0.9;color:var(--ink);
+    margin-top:64px;
+  }
+  footer .footer-mark{
+    margin-top:72px;
+    display:flex;justify-content:center;align-items:center;
+    padding:0;
+  }
+  footer .footer-mark img{
+    width:100%;max-width:1080px;height:auto;display:block;
+    opacity:0.92;
+  }
+  footer .big em{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-0.02em;}
+
+  /* ─── Modal ─── */
+  .modal-bg{
+    position:fixed;inset:0;background:rgba(22,20,15,0.45);
+    display:none;align-items:center;justify-content:center;z-index:100;
+    backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  }
+  .modal-bg.on{display:flex;}
+  .modal{
+    background:var(--paper);
+    width:min(520px, calc(100% - 40px));
+    padding:40px;
+    border:1px solid var(--line);
+  }
+  .modal h4{font-family:var(--sans);font-weight:400;font-size:24px;letter-spacing:-0.02em;margin-bottom:8px;}
+  .modal h4 em{font-family:var(--serif);font-style:italic;}
+  .modal p.muted{color:var(--mute);font-size:14px;margin-bottom:28px;}
+  .field{display:flex;flex-direction:column;gap:6px;margin-bottom:18px;}
+  .field label{font-family:var(--mono);font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;color:var(--mute);}
+  .field input,.field textarea{
+    background:transparent;border:0;border-bottom:1px solid var(--line);
+    padding:8px 0;font:inherit;color:var(--ink);outline:none;
+    transition:border-color .2s ease;
+  }
+  .field input:focus,.field textarea:focus{border-color:var(--ink);}
+  .modal .row{display:flex;justify-content:space-between;align-items:center;margin-top:12px;}
+  .modal .close{font-size:13px;color:var(--mute);}
+  .modal .close:hover{color:var(--ink);}
+
+  /* small helpers */
+  .muted{color:var(--mute);}
+  .serif-em{font-family:var(--serif);font-style:italic;font-weight:400;}
+  .nowrap{white-space:nowrap;}
+
+  @media(max-width:760px){
+    .nav-links{display:none;}
+    .compare .row{grid-template-columns:1fr;gap:6px;padding:18px 0;}
+    .compare .row.head{display:none;}
+    .compare .them::before{content:"Typical: ";color:var(--mute);font-family:var(--mono);font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;display:block;margin-bottom:4px;}
+    .compare .ours::before{display:none;}
+    .compare .ours{font-weight:500;color:var(--ink);}
+    .compare .ours::after{content:"";}
+    .how-steps .step{grid-template-columns:1fr;gap:8px;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ───────── NAV ───────── -->
+<nav class="top">
+  <div class="shell row">
+    <a href="#" class="brand" aria-label="Amplefi">
+      <img src="assets/amplefi-logo-ink.png" alt="Amplefi" />
+    </a>
+    <div class="nav-links">
+      <a href="#what">What we do</a>
+      <a href="#how">Approach</a>
+      <a href="#why">Why it works</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <button class="nav-cta" onclick="openModal()">Request analysis</button>
+  </div>
+</nav>
+
+<!-- ───────── HERO ───────── -->
+<header class="hero">
+  <div class="bg" aria-hidden="true">
+    <img src="assets/amplefi-water.jpeg" alt="" />
+  </div>
+  <div class="shell">
+    <div class="meta">
+      <span class="label">Operational diagnostics &amp; remediation</span>
+      <span class="label">Est. 2024 — New York</span>
+    </div>
+
+    <div>
+      <h1>Fix the problems your team has <em>learned</em> to work around.</h1>
+      <p class="sub">Small, unresolved issues slow teams down every day. Amplefi finds them — delays, broken handoffs, slow decisions — and removes them at the source.</p>
+      <div class="actions">
+        <button class="btn" onclick="openModal()">
+          Get an operational analysis
+          <span class="arrow" aria-hidden="true">→</span>
+        </button>
+        <a href="#how" class="btn btn-ghost">Read our approach</a>
+      </div>
+      <p class="qualifier">For teams tired of solving the same operational problems every week.</p>
+    </div>
+  </div>
+  <span class="plate-caption">Surface tension</span>
+</header>
+
+<!-- ───────── WHAT WE DO ───────── -->
+<section id="what" class="block">
+  <div class="shell sec-grid">
+    <div class="lead">
+      <span class="label">What we do</span>
+      <span class="muted" style="font-size:13px;max-width:24ch;">A practice for the recurring problems no one has time to solve.</span>
+    </div>
+    <div>
+      <h2>Most operational drag isn't one big problem. It's the same small ones, <em>repeated every day.</em></h2>
+      <div class="body" style="margin-top:36px;">
+        <p>Teams adapt to problems. They build workarounds, absorb delays, and learn to compensate — until the workaround becomes the process.</p>
+      </div>
+      <ul class="wwd-list">
+        <li>Delays that recur the same way, every time.</li>
+        <li>Handoffs that break in predictable places.</li>
+        <li>Decisions that wait for people who aren't there.</li>
+      </ul>
+      <div class="body" style="margin-top:32px;">
+        <p>Amplefi identifies the root cause of each one and removes it directly.</p>
+      </div>
+      <p class="closing">No new systems. No added complexity. Just fewer problems.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── HOW ───────── -->
+<section id="how" class="block" style="background:transparent;">
+  <div class="shell sec-grid">
+    <div class="lead">
+      <span class="label">How we do it</span>
+      <span class="muted" style="font-size:13px;max-width:24ch;">A direct sequence — study, design, install — done on the floor with your team.</span>
+    </div>
+    <div>
+      <h2>Three steps. <em>No overhead</em>, no shelfware.</h2>
+      <ol class="how-steps" style="margin-top:48px;list-style:none;">
+        <li class="step">
+          <p class="step-title">Operational study</p>
+          <p class="step-desc">We work alongside your team to understand how work actually moves — where it flows, where it stalls, and what people do to get around the gaps.</p>
+        </li>
+        <li class="step">
+          <p class="step-title">Targeted fixes</p>
+          <p class="step-desc">We pinpoint the specific issues causing the most drag and design direct, simple interventions. No frameworks. No generic playbooks.</p>
+        </li>
+        <li class="step">
+          <p class="step-title">On-the-floor execution</p>
+          <p class="step-desc">We implement changes with your team — not in a deck, not from a distance. We stay until the fix is in place and the problem stops recurring.</p>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── WHY IT WORKS ───────── -->
+<section id="why" class="block">
+  <div class="shell sec-grid">
+    <div class="lead">
+      <span class="label">Why it works</span>
+      <span class="muted" style="font-size:13px;max-width:24ch;">Most firms diagnose. We remove.</span>
+    </div>
+    <div>
+      <h2>Most firms <em>diagnose.</em> We remove.</h2>
+      <div class="compare" style="margin-top:48px;">
+        <div class="row head">
+          <span>Concern</span>
+          <span>Typical engagement</span>
+          <span class="us">Amplefi</span>
+        </div>
+        <div class="row">
+          <div class="topic">Outputs</div>
+          <div class="them">Reports, decks, recommendations.</div>
+          <div class="ours">Direct interventions that make the work easier.</div>
+        </div>
+        <div class="row">
+          <div class="topic">Tooling</div>
+          <div class="them">New software, new dashboards to manage.</div>
+          <div class="ours">No new tools to manage.</div>
+        </div>
+        <div class="row">
+          <div class="topic">Method</div>
+          <div class="them">Abstract frameworks, off-the-shelf playbooks.</div>
+          <div class="ours">Specific fixes for specific problems.</div>
+        </div>
+        <div class="row">
+          <div class="topic">Aftermath</div>
+          <div class="them">Reports that sit on a shelf.</div>
+          <div class="ours">A team that no longer has to work around it.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── QUIET STAT ROW ───────── -->
+<section class="shell" aria-label="Practice notes">
+  <div class="stats">
+    <div class="stat">
+      <span class="label">Engagement length</span>
+      <div class="v">6–12<em> wk</em></div>
+      <p class="d">Short by design. We stay until the fix holds, then leave.</p>
+    </div>
+    <div class="stat">
+      <span class="label">Deliverables</span>
+      <div class="v">Zero<em> decks</em></div>
+      <p class="d">No reports. No frameworks. The artifact is the changed process itself.</p>
+    </div>
+    <div class="stat">
+      <span class="label">Practice</span>
+      <div class="v">On the<em> floor</em></div>
+      <p class="d">We work where the work happens, alongside the people doing it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── CTA ───────── -->
+<section id="contact" class="cta-final shell">
+  <span class="label">Begin</span>
+  <h3>Better operations come from <em>fewer problems.</em></h3>
+  <div class="actions">
+    <button class="btn" onclick="openModal()">
+      Get an operational analysis
+      <span class="arrow" aria-hidden="true">→</span>
+    </button>
+    <a href="mailto:hello@amplefi.com" class="btn btn-ghost">hello@amplefi.com</a>
+  </div>
+</section>
+
+<!-- ───────── FOOTER ───────── -->
+<footer>
+  <div class="shell">
+    <div class="row">
+      <div class="brand brand-footer" aria-label="Amplefi">
+        <img src="assets/amplefi-logo-ink.png" alt="Amplefi" />
+      </div>
+      <div class="links">
+        <a href="#what">What we do</a>
+        <a href="#how">Approach</a>
+        <a href="#why">Why it works</a>
+        <a href="mailto:hello@amplefi.com">Contact</a>
+      </div>
+    </div>
+    <div class="big">Fewer <em>problems.</em></div>
+    <div class="row" style="margin-top:48px;">
+      <div class="colophon">
+        © 2026 AMPLEFI LLC<br/>
+        OPERATIONAL DIAGNOSTICS &amp; REMEDIATION
+      </div>
+      <div class="colophon" style="text-align:right;">
+        NEW YORK / REMOTE<br/>
+        HELLO@AMPLEFI.COM
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ───────── MODAL ───────── -->
+<div class="modal-bg" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal" role="dialog" aria-modal="true" aria-label="Request analysis">
+    <h4>Request an <em>analysis.</em></h4>
+    <p class="muted">Tell us briefly where the drag is. We'll respond within two business days.</p>
+    <form onsubmit="event.preventDefault(); submitted();">
+      <div class="field">
+        <label for="m-name">Name</label>
+        <input id="m-name" required />
+      </div>
+      <div class="field">
+        <label for="m-email">Email</label>
+        <input id="m-email" type="email" required />
+      </div>
+      <div class="field">
+        <label for="m-co">Company</label>
+        <input id="m-co" />
+      </div>
+      <div class="field">
+        <label for="m-note">Where is the recurring problem?</label>
+        <textarea id="m-note" rows="3"></textarea>
+      </div>
+      <div class="row">
+        <button type="button" class="close" onclick="closeModal()">Cancel</button>
+        <button type="submit" class="btn">Send request <span class="arrow" aria-hidden="true">→</span></button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script>
+  function openModal(){document.getElementById('modal').classList.add('on');document.body.style.overflow='hidden';}
+  function closeModal(){document.getElementById('modal').classList.remove('on');document.body.style.overflow='';}
+  function submitted(){
+    const m=document.getElementById('modal');
+    m.querySelector('.modal').innerHTML='<h4>Received.</h4><p class="muted" style="margin-top:12px;">We\u2019ll be in touch within two business days.</p><div class="row" style="margin-top:32px;"><span></span><button class="btn" onclick="closeModal()">Close</button></div>';
+  }
+  document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
+</script>
+
+</body>
+</html>
