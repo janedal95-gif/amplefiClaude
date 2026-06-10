@@ -24,10 +24,11 @@
 .value {
   font-family: var(--sans);
   font-weight: 300;
-  font-size: clamp(32px, 3.6vw, 52px);
+  font-size: clamp(26px, 2.8vw, 40px);
   letter-spacing: -0.03em;
   line-height: 1;
   color: var(--ink);
+  white-space: nowrap;
 }
 
 .value em {

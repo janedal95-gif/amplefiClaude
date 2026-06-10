@@ -64,7 +64,7 @@ export default function ContactModal({ open, onClose }) {
       onClick={handleBackdropClick}
       role="dialog"
       aria-modal="true"
-      aria-label="Request an analysis"
+      aria-label="Start with a Workflow Assessment"
     >
       <div className={styles.modal}>
         <button className={styles.close} onClick={onClose} aria-label="Close">
@@ -78,7 +78,7 @@ export default function ContactModal({ open, onClose }) {
           </div>
         ) : (
           <>
-            <h4 className={styles.heading}>Request an <em>analysis.</em></h4>
+            <h4 className={styles.heading}>Start your <em>Workflow Assessment.</em></h4>
             <p className={styles.subtext}>
               Tell us briefly where the drag is. We'll respond within two business days.
             </p>

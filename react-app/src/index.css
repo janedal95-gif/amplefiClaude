@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&family=Pinyon+Script&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
 
 *, *::before, *::after {
   margin: 0;
@@ -16,9 +16,10 @@
   --line:    rgba(22, 20, 15, 0.14);
   --line-2:  rgba(22, 20, 15, 0.08);
 
-  --serif: 'Instrument Serif', 'Times New Roman', serif;
-  --sans:  'Geist', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --mono:  'Geist Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --serif:  'Cormorant Garamond', Georgia, serif;
+  --sans:   'Jost', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --mono:   'Space Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --script: 'Pinyon Script', cursive;
 
   --pad:  clamp(28px, 6vw, 96px);
   --maxw: 1440px;

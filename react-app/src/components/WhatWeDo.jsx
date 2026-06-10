@@ -11,20 +11,17 @@ export default function WhatWeDo() {
         </div>
         <div>
           <h2 className={styles.heading}>
-            We help experienced professionals build systems that survive what's coming.
+            You've spent years building how you work. That's not a liability — <em>it's exactly what we build from.</em>
           </h2>
-          <div className={styles.body}>
-            <p>Mid-to-late career professionals have spent years building how they work. AI is about to get forced into that — and most of those systems weren't built to absorb it.</p>
-          </div>
           <ul className={styles.list}>
             <li>Workflows designed for a world without AI.</li>
             <li>Documented processes that don't match how work actually happens.</li>
             <li>Tools layered on top of problems that were never fixed.</li>
           </ul>
           <div className={styles.body}>
-            <p>Amplefi builds the playbook with you — live, hands-on — so your systems are solid before they're tested.</p>
+            <p>Amplefi maps how you actually operate — not how you think you do — and builds the systems that make AI land as an upgrade.</p>
           </div>
-          <p className={styles.closing}>We don't sell courses or hand you templates. We implement.</p>
+          <p className={styles.closing}>We don't just teach you how to run an office. We operationalize one with you.</p>
         </div>
       </div>
     </section>

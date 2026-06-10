@@ -13,25 +13,25 @@ export default function Hero({ onRequestDemo }) {
         </div>
         <div>
           <h1 className={styles.headline}>
-            AI is getting forced into how you work. We make sure your systems are ready for it.
+            AI is getting forced into how you work.<br />
+            <em>Most of what you've built isn't ready for it.</em>
           </h1>
           <p className={styles.subline}>
-            Amplefi builds the operational playbook experienced professionals need — so when that moment comes, it's an upgrade, not a rebuild.
+            Amplefi gets your house in order now — so when that moment comes, it's an upgrade, not a rebuild.
           </p>
           <div className={styles.actions}>
             <Button onClick={onRequestDemo} arrow className={styles.heroCta}>
-              Start with a workflow assessment
+              Start with a Workflow Assessment
             </Button>
             <Button href="#how" ghost className={styles.heroGhost}>
               Read our approach
             </Button>
           </div>
           <p className={styles.qualifier}>
-            For professionals who want to be ready before AI forces their hand.
+            For mid-to-late career professionals who built something real and want to keep it that way.
           </p>
         </div>
       </div>
-      <span className={styles.plateCaption}>Surface tension</span>
     </header>
   );
 }

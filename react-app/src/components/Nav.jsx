@@ -15,7 +15,7 @@ function Nav({ onRequestDemo }) {
           <a href="#contact">Contact</a>
         </div>
         <button className={styles.cta} onClick={onRequestDemo}>
-          Request analysis
+          Start with a Workflow Assessment
         </button>
       </div>
     </nav>

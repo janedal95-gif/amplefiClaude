@@ -1,8 +1,8 @@
 .label {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  font-family: var(--script);
+  font-size: 44px;
+  letter-spacing: 0;
   color: var(--mute);
   font-weight: 400;
+  line-height: 1.1;
 }

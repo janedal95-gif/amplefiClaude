@@ -2,22 +2,22 @@ import styles from './Stats.module.css';
 
 const stats = [
   {
-    label: 'Engagement length',
-    value: '6–12',
-    unit: ' wk',
-    detail: 'Short by design. We stay until the fix holds, then leave.',
+    label: 'The promise',
+    value: 'Upgrade,',
+    unit: ' not rebuild',
+    detail: 'When AI gets forced into how you work, your systems absorb it. Not the other way around.',
   },
   {
-    label: 'Deliverables',
-    value: 'Zero',
-    unit: ' decks',
-    detail: 'No reports. No frameworks. The artifact is the changed process itself.',
+    label: 'Our method',
+    value: 'Done',
+    unit: ' with you',
+    detail: 'Jane spends a week on the floor learning your real process. We implement alongside you until it runs.',
   },
   {
-    label: 'Practice',
-    value: 'On the',
-    unit: ' floor',
-    detail: 'We work where the work happens, alongside the people doing it.',
+    label: 'What you keep',
+    value: 'Full',
+    unit: ' ownership',
+    detail: 'You run it. You understand it. No dependency on us to keep it working.',
   },
 ];
 
