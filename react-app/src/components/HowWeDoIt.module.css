@@ -1,7 +1,7 @@
 .section {
   border-top: 1px solid var(--line);
-  padding-top: clamp(72px, 9vw, 140px);
-  padding-bottom: clamp(72px, 9vw, 140px);
+  padding-top: clamp(56px, 7vw, 108px);
+  padding-bottom: clamp(56px, 7vw, 108px);
 }
 
 .grid {

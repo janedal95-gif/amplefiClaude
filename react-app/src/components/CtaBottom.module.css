@@ -5,7 +5,7 @@
 .inner {
   max-width: var(--maxw);
   margin: 0 auto;
-  padding: clamp(96px, 12vw, 180px) var(--pad);
+  padding: clamp(72px, 9vw, 140px) var(--pad);
   text-align: left;
 }
 
