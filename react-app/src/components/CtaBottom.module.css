@@ -85,6 +85,14 @@
   max-width: 54ch;
 }
 
+.assessmentNote {
+  margin-top: 28px;
+  font-size: clamp(13px, 1vw, 15px);
+  line-height: 1.6;
+  color: rgba(243, 241, 236, 0.6);
+  max-width: 52ch;
+}
+
 .actions {
   margin-top: 36px;
   display: flex;

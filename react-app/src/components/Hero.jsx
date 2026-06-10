@@ -14,10 +14,10 @@ export default function Hero({ onRequestDemo }) {
         <div>
           <h1 className={styles.headline}>
             AI is getting forced into how you work.<br />
-            <em>Most of what you've built isn't ready for it.</em>
+            <em>We make sure your systems are ready when it does.</em>
           </h1>
           <p className={styles.subline}>
-            Amplefi gets your house in order now — so when that moment comes, it's an upgrade, not a rebuild.
+            Amplefi maps how you actually work, builds the systems that reflect it, and implements them with you — so when that moment comes, you're ready for it.
           </p>
           <div className={styles.actions}>
             <Button onClick={onRequestDemo} arrow className={styles.heroCta}>

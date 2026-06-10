@@ -11,7 +11,7 @@ const stats = [
     label: 'Our method',
     value: 'Done',
     unit: ' with you',
-    detail: 'Jane spends a week on the floor learning your real process. We implement alongside you until it runs.',
+    detail: 'Jane D\'Alesandro — co-founder, and a career spent in customer service watching the same processes break in every industry — spends a week on the floor learning how your operation actually runs. Then we implement alongside you until it does.',
   },
   {
     label: 'What you keep',
