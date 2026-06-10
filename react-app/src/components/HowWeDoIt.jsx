@@ -3,16 +3,19 @@ import styles from './HowWeDoIt.module.css';
 
 const steps = [
   {
-    title: 'Operational study',
-    description: 'We work alongside your team to understand how work actually moves — where it flows, where it stalls, and what people do to get around the gaps.',
+    title: 'Workflow audit',
+    description:
+      'We map how you actually operate — where decisions get made, where handoffs happen, and where your real workflows live versus what\'s documented.',
   },
   {
-    title: 'Targeted fixes',
-    description: 'We pinpoint the specific issues causing the most drag and design direct, simple interventions. No frameworks. No generic playbooks.',
+    title: 'System design',
+    description:
+      'We build the operational systems that reflect that reality — clear, maintainable, and built to absorb change without breaking.',
   },
   {
-    title: 'On-the-floor execution',
-    description: 'We implement changes with your team — not in a deck, not from a distance. We stay until the fix is in place and the problem stops recurring.',
+    title: 'Live implementation',
+    description:
+      'We don\'t hand you a manual and walk away. We implement it with you so it\'s running before we leave.',
   },
 ];
 
@@ -22,11 +25,11 @@ export default function HowWeDoIt() {
       <div className={styles.grid}>
         <div className={styles.lead}>
           <SectionLabel>How we do it</SectionLabel>
-          <p className={styles.leadNote}>A direct sequence — study, design, install — done on the floor with your team.</p>
+          <p className={styles.leadNote}>A direct sequence — audit, design, implement — done with your team.</p>
         </div>
         <div>
           <h2 className={styles.heading}>
-            Three steps. <em>No overhead</em>, no shelfware.
+            Three steps. Built around how you actually work, not how AI assumes you do.
           </h2>
           <ol className={styles.steps}>
             {steps.map((step) => (

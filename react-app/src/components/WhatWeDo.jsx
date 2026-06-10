@@ -7,24 +7,24 @@ export default function WhatWeDo() {
       <div className={styles.grid}>
         <div className={styles.lead}>
           <SectionLabel>What we do</SectionLabel>
-          <p className={styles.leadNote}>A practice for the recurring problems no one has time to solve.</p>
+          <p className={styles.leadNote}>Operational implementation before AI forces your hand.</p>
         </div>
         <div>
           <h2 className={styles.heading}>
-            Most operational drag isn't one big problem. It's the same small ones, <em>repeated every day.</em>
+            We help experienced professionals build systems that survive what's coming.
           </h2>
           <div className={styles.body}>
-            <p>Teams adapt to problems. They build workarounds, absorb delays, and learn to compensate — until the workaround becomes the process.</p>
+            <p>Mid-to-late career professionals have spent years building how they work. AI is about to get forced into that — and most of those systems weren't built to absorb it.</p>
           </div>
           <ul className={styles.list}>
-            <li>Delays that recur the same way, every time.</li>
-            <li>Handoffs that break in predictable places.</li>
-            <li>Decisions that wait for people who aren't there.</li>
+            <li>Workflows designed for a world without AI.</li>
+            <li>Documented processes that don't match how work actually happens.</li>
+            <li>Tools layered on top of problems that were never fixed.</li>
           </ul>
           <div className={styles.body}>
-            <p>Amplefi identifies the root cause of each one and removes it directly.</p>
+            <p>Amplefi builds the playbook with you — live, hands-on — so your systems are solid before they're tested.</p>
           </div>
-          <p className={styles.closing}>No new systems. No added complexity. Just fewer problems.</p>
+          <p className={styles.closing}>We don't sell courses or hand you templates. We implement.</p>
         </div>
       </div>
     </section>
