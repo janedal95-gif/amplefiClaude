@@ -8,11 +8,11 @@ export default function CtaBottom({ onRequestDemo }) {
       <div className={styles.inner}>
         <SectionLabel>Begin</SectionLabel>
         <h3 className={styles.heading}>
-          Better operations come from <em>fewer problems.</em>
+          AI isn't waiting for you to be ready. <em>Start now.</em>
         </h3>
         <div className={styles.actions}>
           <Button onClick={onRequestDemo} arrow>
-            Get an operational analysis
+            Start with a workflow assessment
           </Button>
         </div>
       </div>

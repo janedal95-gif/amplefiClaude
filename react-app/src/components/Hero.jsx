@@ -9,25 +9,25 @@ export default function Hero({ onRequestDemo }) {
       </div>
       <div className={styles.shell}>
         <div className={styles.meta}>
-          <span className={styles.metaLabel}>Operational diagnostics &amp; remediation</span>
+          <span className={styles.metaLabel}>Operational implementation for experienced professionals</span>
         </div>
         <div>
           <h1 className={styles.headline}>
-            Fix the problems your team has <em>learned</em> to work around.
+            AI is getting forced into how you work. We make sure your systems are ready for it.
           </h1>
           <p className={styles.subline}>
-            Small, unresolved issues slow teams down every day. Amplefi finds them — delays, broken handoffs, slow decisions — and removes them at the source.
+            Amplefi builds the operational playbook experienced professionals need — so when that moment comes, it's an upgrade, not a rebuild.
           </p>
           <div className={styles.actions}>
             <Button onClick={onRequestDemo} arrow className={styles.heroCta}>
-              Get an operational analysis
+              Start with a workflow assessment
             </Button>
             <Button href="#how" ghost className={styles.heroGhost}>
               Read our approach
             </Button>
           </div>
           <p className={styles.qualifier}>
-            For teams tired of solving the same operational problems every week.
+            For professionals who want to be ready before AI forces their hand.
           </p>
         </div>
       </div>
